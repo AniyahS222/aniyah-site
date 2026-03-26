@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aniyah Smith — Brand Strategist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --white: #FAFAF8;
+      --purple: #6B21D6;
+      --purple-light: #9B5CF6;
+      --gray: #6B6B6B;
+      --line: #E0E0E0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--black); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--black); }
+    .nav-cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--black); padding: 0.65rem 1.5rem; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--purple); }
+
+    /* HERO */
+    #hero {
+      border-bottom: 1px solid var(--line);
+      padding: 8rem 3rem 6rem;
+      display: flex; flex-direction: column; gap: 4rem;
+    }
+    .hero-tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); display: flex; align-items: center; gap: 0.8rem; }
+    .hero-tag::after { content: ''; display: block; height: 1px; width: 40px; background: var(--purple); }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(4.5rem, 9vw, 10rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.03em; }
+    h1 em { font-style: italic; font-weight: 400; color: var(--purple); }
+    .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; border-top: 1px solid var(--line); padding-top: 3rem; }
+    .hero-desc { font-size: 1.1rem; color: var(--gray); line-height: 1.8; max-width: 520px; }
+    .hero-desc strong { color: var(--black); font-weight: 500; }
+    .hero-actions { display: flex; gap: 1rem; justify-content: flex-end; align-items: center; }
+    .btn-dark { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--black); padding: 0.9rem 2.2rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
+    .btn-dark:hover { background: var(--purple); }
+    .btn-outline { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); border: 1px solid var(--black); padding: 0.9rem 2.2rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* MARQUEE */
+    .marquee-wrap { border-bottom: 1px solid var(--line); overflow: hidden; background: var(--black); padding: 0.9rem 0; }
+    .marquee-track { display: flex; animation: marquee 28s linear infinite; width: max-content; }
+    .marquee-track span { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); padding: 0 3rem; white-space: nowrap; }
+    .marquee-track span.accent { color: var(--purple-light); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SHARED */
+    .section-wrap { border-bottom: 1px solid var(--line); }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
+    .section-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+    .section-label::after { content: ''; display: block; height: 1px; width: 40px; background: var(--purple); }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 900; line-height: 0.92; letter-spacing: -0.025em; }
+    h2 em { font-style: italic; font-weight: 400; color: var(--purple); }
+
+    /* RESULTS */
+    #results .section-header { margin-bottom: 4rem; }
+    #results .section-header p { font-size: 1.05rem; color: var(--gray); margin-top: 1.5rem; max-width: 600px; line-height: 1.8; }
+    .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .result-card { background: var(--white); padding: 4rem 3.5rem; display: flex; flex-direction: column; gap: 1.5rem; transition: background 0.25s; }
+    .result-card:hover { background: #F2EBFF; }
+    .result-num { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 5.5vw, 6rem); font-weight: 900; line-height: 0.88; color: var(--black); }
+    .result-num span { color: var(--purple); }
+    .result-divider { display: flex; align-items: center; gap: 1rem; }
+    .result-divider hr { flex: 1; border: none; border-top: 1px solid var(--line); }
+    .result-title { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); white-space: nowrap; }
+    .result-headline { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; line-height: 1.2; }
+    .result-body { font-size: 0.95rem; color: var(--gray); line-height: 1.85; }
+    .result-body strong { color: var(--black); font-weight: 500; }
+
+    /* SERVICES */
+    #services .services-list { margin-top: 4rem; border-top: 1px solid var(--line); }
+    .service-row { display: grid; grid-template-columns: 60px 1fr 1.2fr; gap: 3rem; align-items: start; padding: 3.5rem 0; border-bottom: 1px solid var(--line); transition: padding-left 0.25s; }
+    .service-row:hover { padding-left: 1rem; }
+    .svc-num { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: var(--purple); padding-top: 0.4rem; }
+    .svc-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1.1; }
+    .svc-desc { font-size: 0.95rem; color: var(--gray); line-height: 1.85; padding-top: 0.4rem; }
+
+    /* ABOUT */
+    #about .about-body { margin-top: 3.5rem; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 6rem; align-items: start; }
+    .about-text p { font-size: 1.05rem; color: var(--gray); line-height: 1.9; margin-bottom: 1.4rem; }
+    .about-text p strong { color: var(--black); font-weight: 500; }
+    .about-text p em { color: var(--purple); font-style: normal; font-weight: 500; }
+    .about-aside { display: flex; flex-direction: column; gap: 2.5rem; position: sticky; top: 90px; }
+    .aside-block { border: 1px solid var(--line); padding: 2rem; }
+    .aside-block-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); margin-bottom: 1rem; }
+    .aside-block-text { font-size: 0.92rem; color: var(--gray); line-height: 1.75; }
+    .aside-block-text strong { color: var(--black); font-weight: 500; }
+    .brands-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .brand-pill { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); border: 1px solid var(--line); padding: 0.4rem 0.9rem; transition: border-color 0.2s, color 0.2s; }
+    .brand-pill:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* SUBSTACK — condensed banner */
+    #substack-cta {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2.5rem 3rem;
+      background: var(--black);
+      gap: 2rem;
+    }
+    .sub-text { display: flex; align-items: center; gap: 2rem; }
+    .sub-text h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; font-style: italic; color: var(--white); line-height: 1.1; }
+    .sub-text p { font-size: 0.9rem; color: rgba(255,255,255,0.45); max-width: 360px; line-height: 1.5; }
+    .btn-white { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); background: var(--white); padding: 0.85rem 2rem; text-decoration: none; transition: opacity 0.2s; white-space: nowrap; flex-shrink: 0; display: inline-block; }
+    .btn-white:hover { opacity: 0.85; }
+
+    /* CONTACT */
+    #contact .section-inner { padding-bottom: 0; }
+    .contact-top { margin-top: 3.5rem; padding-bottom: 4rem; max-width: 600px; }
+    .contact-intro p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 2rem; }
+
+    /* Collapsible form */
+    .form-toggle {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--black); border: 1px solid var(--black); padding: 0.9rem 2.2rem;
+      cursor: pointer; background: none; transition: border-color 0.2s, color 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .form-toggle:hover { border-color: var(--purple); color: var(--purple); }
+    .form-toggle .toggle-icon { transition: transform 0.3s; display: inline-block; }
+    .form-toggle.open .toggle-icon { transform: rotate(45deg); }
+
+    .collapsible-form {
+      display: none;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+      padding: 2rem;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .collapsible-form.open { display: flex; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fgroup { display: flex; flex-direction: column; gap: 0.4rem; }
+    .fgroup label { font-size: 0.67rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); }
+    .fgroup input, .fgroup textarea, .fgroup select { background: var(--white); border: 1px solid var(--line); color: var(--black); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; padding: 0.8rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; }
+    .fgroup input:focus, .fgroup textarea:focus, .fgroup select:focus { border-color: var(--purple); }
+    .fgroup textarea { resize: vertical; min-height: 120px; }
+
+    /* Contact icon links at bottom */
+    .contact-icons-bar {
+      border-top: 1px solid var(--line);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .icon-link {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      text-decoration: none; color: var(--gray);
+      transition: color 0.2s;
+    }
+    .icon-link:hover { color: var(--purple); }
+    .icon-link svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-link span { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* FOOTER */
+    footer { background: var(--black); padding: 2.5rem 3rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--white); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--purple-light); }
+    footer .copy { font-size: 0.7rem; color: rgba(255,255,255,0.25); }
+
+    /* MOBILE */
+    @media (max-width: 860px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 5rem 1.5rem 3.5rem; }
+      .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-actions { justify-content: flex-start; }
+      .section-inner { padding: 4rem 1.5rem; }
+      .results-grid { grid-template-columns: 1fr; }
+      .service-row { grid-template-columns: 1fr; gap: 0.8rem; }
+      #about .about-body { grid-template-columns: 1fr; gap: 3rem; }
+      .about-aside { position: static; }
+      #substack-cta { flex-direction: column; align-items: flex-start; padding: 2rem 1.5rem; }
+      .sub-text { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+      .contact-top { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-icons-bar { gap: 1.5rem; padding: 2rem 1.5rem; flex-wrap: wrap; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-name">Aniyah Smith</a>
+  <ul class="nav-links">
+    <li><a href="#results">Results</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://aniyahs.substack.com" target="_blank">Substack</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work With Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div>
+    <div class="hero-tag">Brand Strategist &amp; Marketing Consultant</div>
+    <h1 style="margin-top:1.5rem">My marketing<br/>skills are<br/><em>unmatched.</em></h1>
+  </div>
+  <div class="hero-bottom">
+    <p class="hero-desc">
+      7+ years building brands that don't just stand out — they solve real problems and drive measurable results. <strong>MBA in Marketing &amp; Analytics from Northeastern.</strong> Obsessed with getting the right consumer matched to the right product.
+    </p>
+    <div class="hero-actions">
+      <a href="https://aniyahsmith.com/s/Portfolio-June-2025-55ad.pdf" target="_blank" class="btn-dark">View Portfolio ↗</a>
+      <a href="#results" class="btn-outline">See Results</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Brand Development</span><span class="accent">✦</span>
+    <span>Go-To-Market Strategy</span><span class="accent">✦</span>
+    <span>Digital Marketing</span><span class="accent">✦</span>
+    <span>Influencer Marketing</span><span class="accent">✦</span>
+    <span>Product Launches</span><span class="accent">✦</span>
+    <span>Consumer Insights</span><span class="accent">✦</span>
+    <span>D2C &amp; B2B</span><span class="accent">✦</span>
+    <span>Brand Positioning</span><span class="accent">✦</span>
+    <span>Brand Development</span><span class="accent">✦</span>
+    <span>Go-To-Market Strategy</span><span class="accent">✦</span>
+    <span>Digital Marketing</span><span class="accent">✦</span>
+    <span>Influencer Marketing</span><span class="accent">✦</span>
+    <span>Product Launches</span><span class="accent">✦</span>
+    <span>Consumer Insights</span><span class="accent">✦</span>
+    <span>D2C &amp; B2B</span><span class="accent">✦</span>
+    <span>Brand Positioning</span><span class="accent">✦</span>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="section-wrap" id="results">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Proof of Work</div>
+      <h2>Results that speak<br/><em>for themselves.</em></h2>
+      <p>The numbers are the headline. But the work behind them is the story. Here's what happens when strategy meets execution.</p>
+    </div>
+    <div class="results-grid">
+
+      <div class="result-card">
+        <div class="result-num"><span>$3</span>B</div>
+        <div class="result-divider">
+          <div class="result-title">Mobile Gaming · Launch Strategy</div>
+          <hr />
+        </div>
+        <div class="result-headline">The fastest growing mobile game in history. In 473 days.</div>
+        <div class="result-body">
+          I authored the consumer insights reports that became the strategic backbone of this launch. We're talking about a game that hit <strong>$3 billion in revenue in 473 days</strong> — a record that still stands. My work involved deep behavioral analysis, audience segmentation, and translating raw data into a creative positioning framework that the entire launch team could execute against. This wasn't a support role. The insights I surfaced determined who we talked to, how we talked to them, and why it worked at a scale most brands never see in a lifetime.
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-num"><span>+118</span>%</div>
+        <div class="result-divider">
+          <div class="result-title">Influencer Marketing · 3 Months</div>
+          <hr />
+        </div>
+        <div class="result-headline">More than doubled sales in a quarter — with influencer strategy alone.</div>
+        <div class="result-body">
+          Most influencer programs chase impressions. I build programs that chase revenue. In a three-month window, the strategy I designed and executed drove a <strong>+118% increase in sales</strong>. That meant identifying the right creators — not the biggest, the most aligned — building a content framework rooted in authentic storytelling, and managing execution so that engagement actually converted. The key was treating influencer marketing like a sales engine, not a PR tactic. It showed.
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-num"><span>$2.4</span>M</div>
+        <div class="result-divider">
+          <div class="result-title">Product Quiz · Revenue · 1 Year</div>
+          <hr />
+        </div>
+        <div class="result-headline">One quiz. $2.4 million in a year. Built from zero.</div>
+        <div class="result-body">
+          I conceptualized, designed, and built a product quiz from the ground up — and it became one of the highest-performing revenue assets in the company's history, generating <strong>$2.4 million in a single year</strong>. This wasn't a passive quiz sitting on a product page. It was a full personalization engine that matched consumers to the right products with precision, dramatically reducing drop-off, increasing average order value, and creating a customer experience so tailored it felt like a one-on-one consultation.
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-num"><span>7</span>+</div>
+        <div class="result-divider">
+          <div class="result-title">Years · D2C · B2B</div>
+          <hr />
+        </div>
+        <div class="result-headline">Household brands. Household results. Across every channel.</div>
+        <div class="result-body">
+          Seven years of building and scaling brands across D2C and B2B. I've partnered with <strong>Tarte Cosmetics, bareMinerals, Vox Media, Rokt, Danessa Myricks Beauty, and NASDAQ</strong> — brands with high standards and real expectations. What I bring to every engagement is the same: consumer insight sharpened by an <strong>MBA in Marketing &amp; Analytics from Northeastern</strong>, and a track record that makes the case for itself. I don't just run marketing. I build the kind of growth that compounds.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section-wrap" id="services">
+  <div class="section-inner">
+    <div class="section-label">Services</div>
+    <h2>How can I<br/><em>help you?</em></h2>
+    <div class="services-list">
+      <div class="service-row">
+        <div class="svc-num">01.</div>
+        <div class="svc-title">Brand Development &amp; Positioning</div>
+        <div class="svc-desc">Clarity meets edge. I use consumer insights to define what makes a brand different — and craft positioning that makes it unforgettable. From brand audits to full identity strategy, this is where the foundation gets built right.</div>
+      </div>
+      <div class="service-row">
+        <div class="svc-num">02.</div>
+        <div class="svc-title">Go-To-Market &amp; Launch Strategy</div>
+        <div class="svc-desc">Launches that land. I map out product rollouts that drive attention, action, and lasting impact. Whether you're launching a new product, entering a new channel, or repositioning entirely — I build the playbook that makes it work.</div>
+      </div>
+      <div class="service-row">
+        <div class="svc-num">03.</div>
+        <div class="svc-title">Digital Marketing</div>
+        <div class="svc-desc">Creativity that converts. I blend data and instinct to craft emails, funnels, influencer programs, and campaigns that don't just look good — they drive measurable revenue. From concept to execution, I own the whole thing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section-wrap" id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2>I am not<br/><em>one thing.</em></h2>
+    <div class="about-body">
+      <div class="about-text">
+        <p style="margin-top:2rem">
+          With an <strong>MBA in Marketing &amp; Analytics from Northeastern</strong>, I specialize in a rare blend of business strategy, creativity, and consumer insight. I'm obsessed with getting the right consumer matched to the right product — and building the systems that make that happen at scale.
+        </p>
+        <p>
+          I've spent 7+ years in product marketing, brand development, and community building for brands that not only stand out, but solve real problems. My work spans <em>D2C and B2B</em> — and I bring the same insights-backed creative thinking to all of it.
+        </p>
+        <p>
+          My marketing skills are unmatched. The proof isn't just in the numbers — it's in the fact that the brands I work with remember what it felt like to grow with intention, to stop guessing, and to finally see their story told in a way that actually converts.
+        </p>
+        <p>
+          Curious by nature, I'm always chasing ideas that make an impact. When I'm not growing businesses, I'm running marathons — Tokyo and NYC are done, London is next. I'm a TikTok content creator, Shokz brand ambassador, and someone who believes the discipline it takes to run 26.2 miles is the same discipline that makes a great marketer.
+        </p>
+      </div>
+      <div class="about-aside">
+        <div class="aside-block">
+          <div class="aside-block-label">Brands I've Worked With</div>
+          <div class="brands-list">
+            <span class="brand-pill">Tarte Cosmetics</span>
+            <span class="brand-pill">bareMinerals</span>
+            <span class="brand-pill">Vox Media</span>
+            <span class="brand-pill">Rokt</span>
+            <span class="brand-pill">Danessa Myricks Beauty</span>
+            <span class="brand-pill">NASDAQ</span>
+          </div>
+        </div>
+        <div class="aside-block">
+          <div class="aside-block-label">Outside the Office</div>
+          <div class="aside-block-text">
+            Marathon runner (Tokyo ✓ · NYC ✓ · London →)<br/>
+            TikTok creator <strong>@aniyah.s</strong><br/>
+            Shokz Brand Ambassador<br/>
+            Knitter &amp; creative writer
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSTACK — condensed banner -->
+<div class="section-wrap">
+  <div id="substack-cta">
+    <div class="sub-text">
+      <h3>Read my Substack.</h3>
+      <p>Marketing insights, brand strategy, and the real-world playbooks behind the results. No fluff.</p>
+    </div>
+    <a href="https://aniyahs.substack.com" target="_blank" class="btn-white">Read + Subscribe ↗</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section-wrap" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Contact</div>
+    <h2>Let's grow<br/><em>your brand.</em></h2>
+    <div class="contact-top">
+      <div class="contact-intro">
+        <p style="margin-top:2rem">Ready to make your brand unforgettable? I work with a limited number of clients at a time — reach out and let's see if we're a fit.</p>
+        <button class="form-toggle" onclick="toggleForm(this)">
+          Send a Message <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-form" id="contact-form">
+          <div class="form-row">
+            <div class="fgroup"><label>Name</label><input type="text" placeholder="Jane Doe" /></div>
+            <div class="fgroup"><label>Email</label><input type="email" placeholder="jane@company.com" /></div>
+          </div>
+          <div class="fgroup">
+            <label>Service Interest</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Brand Development &amp; Positioning</option>
+              <option>Go-To-Market &amp; Launch Strategy</option>
+              <option>Digital Marketing</option>
+              <option>Other / Multiple</option>
+            </select>
+          </div>
+          <div class="fgroup"><label>Tell me about your brand</label><textarea placeholder="What are you looking to achieve?"></textarea></div>
+          <a href="mailto:aniyahc.smith@gmail.com" class="btn-dark" style="text-align:center;">Send Message ↗</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Contact icon links -->
+  <div class="contact-icons-bar">
+
+    <!-- Email -->
+    <a href="mailto:aniyahc.smith@gmail.com" class="icon-link" title="Email">
+      <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      <span>Email</span>
+    </a>
+
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@aniyah.s" target="_blank" class="icon-link" title="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      <span>TikTok</span>
+    </a>
+
+    <!-- Substack -->
+    <a href="https://aniyahs.substack.com" target="_blank" class="icon-link" title="Substack">
+      <svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 19l4-4 4 4 4-4 4 4V14H4v5z"/></svg>
+      <span>Substack</span>
+    </a>
+
+    <!-- Portfolio -->
+    <a href="https://aniyahsmith.com/s/Portfolio-June-2025-55ad.pdf" target="_blank" class="icon-link" title="Portfolio">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <span>Portfolio</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/aniyahsmith" target="_blank" class="icon-link" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 6 0v5"/></svg>
+      <span>LinkedIn</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Aniyah Smith</div>
+  <div class="footer-links">
+    <a href="#results">Results</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="https://aniyahs.substack.com" target="_blank">Substack</a>
+  </div>
+  <p class="copy">© 2025 Aniyah Smith</p>
+</footer>
+
+<script>
+  function toggleForm(btn) {
+    btn.classList.toggle('open');
+    const form = document.getElementById('contact-form');
+    form.classList.toggle('open');
+    btn.querySelector('.toggle-icon').textContent = form.classList.contains('open') ? '×' : '+';
+  }
+
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20 ? '0 1px 0 #e0e0e0' : 'none';
+  });
+</script>
+</body>
+</html>
