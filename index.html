@@ -7,135 +7,112 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --black: #0E0E0D;
+      --black: #111110;
       --white: #FAFAFA;
-      --cream: #F4F2EF;
       --purple: #5C1F7A;
       --purple-mid: #8B4DB5;
-      --gray: #71706C;
-      --line: #E3DED5;
+      --gray: #777672;
+      --light-gray: #EFEFED;
+      --line: #E5E3DF;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--white); color: var(--black); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     /* NAV */
-    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: var(--white); border-bottom: 1px solid var(--line); }
-    .nav-name { font-size: 0.9rem; font-weight: 700; color: var(--black); text-decoration: none; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a { font-size: 0.78rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 4rem; background: var(--white); border-bottom: 1px solid var(--line); }
+    .nav-name { font-size: 0.95rem; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--black); }
-    .nav-cta { font-size: 0.78rem; font-weight: 600; color: var(--white); background: var(--purple); padding: 0.55rem 1.3rem; text-decoration: none; border-radius: 100px; transition: opacity 0.2s; }
+    .nav-cta { font-size: 0.8rem; font-weight: 600; color: var(--white); background: var(--purple); padding: 0.6rem 1.4rem; text-decoration: none; border-radius: 100px; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.85; }
 
     /* HERO */
-    #hero { padding: 6rem 2.5rem; border-bottom: 1px solid var(--line); max-width: 900px; margin: 0 auto; }
-    .hero-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.6rem; }
-    .hero-tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--purple); }
-    h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    #hero { padding: 9rem 4rem 8rem; text-align: center; border-bottom: 1px solid var(--line); }
+    .hero-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
     h1 span { color: var(--purple); }
-    .hero-desc { font-size: 1.05rem; color: var(--gray); line-height: 1.8; max-width: 560px; margin-bottom: 2.5rem; }
-    .hero-desc strong { color: var(--black); font-weight: 600; }
-    .hero-actions { display: flex; gap: 0.8rem; align-items: center; }
-    .btn-primary { font-size: 0.82rem; font-weight: 600; color: var(--white); background: var(--purple); padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 100px; transition: opacity 0.2s; display: inline-block; }
+    .hero-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.8; max-width: 480px; margin: 0 auto 2.5rem; }
+    .hero-sub strong { color: var(--black); font-weight: 600; }
+    .hero-actions { display: flex; gap: 0.8rem; justify-content: center; }
+    .btn-primary { font-size: 0.82rem; font-weight: 600; color: var(--white); background: var(--purple); padding: 0.85rem 2rem; text-decoration: none; border-radius: 100px; transition: opacity 0.2s; display: inline-block; }
     .btn-primary:hover { opacity: 0.85; }
-    .btn-ghost { font-size: 0.82rem; font-weight: 600; color: var(--black); border: 1.5px solid var(--line); padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 100px; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+    .btn-ghost { font-size: 0.82rem; font-weight: 600; color: var(--black); border: 1.5px solid var(--line); padding: 0.85rem 2rem; text-decoration: none; border-radius: 100px; transition: border-color 0.2s, color 0.2s; display: inline-block; }
     .btn-ghost:hover { border-color: var(--purple); color: var(--purple); }
 
-    /* SHARED */
-    .section-wrap { border-bottom: 1px solid var(--line); }
-    .inner { max-width: 900px; margin: 0 auto; padding: 4.5rem 2.5rem; }
-    .section-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
-    .section-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
-    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 2.5rem; }
+    /* SECTIONS */
+    .section { padding: 7rem 4rem; border-bottom: 1px solid var(--line); max-width: 1000px; margin: 0 auto; }
+    .section-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 3rem; }
     h2 span { color: var(--purple); }
 
     /* SERVICES */
-    .svc-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
-    .svc-row { display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--line); align-items: start; transition: padding-left 0.2s; }
-    .svc-row:hover { padding-left: 0.5rem; }
-    .svc-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
-    .svc-body { font-size: 0.93rem; color: var(--gray); line-height: 1.75; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+    .svc-card { background: var(--white); padding: 2.5rem 2rem; transition: background 0.2s; }
+    .svc-card:hover { background: #F5F0FA; }
+    .svc-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+    .svc-body { font-size: 0.88rem; color: var(--gray); line-height: 1.75; }
 
-    /* EXPERIENCE */
-    #cred { background: var(--black); }
-    #cred .section-tag { color: var(--purple-mid); }
-    #cred .section-tag::before { background: var(--purple-mid); }
-    #cred h2 { color: var(--white); }
-    #cred h2 span { color: var(--purple-mid); }
-    .cred-body { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 2rem; max-width: 560px; }
-    .cred-body strong { color: rgba(255,255,255,0.8); font-weight: 500; }
-    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
-    .stat-cell { padding: 1.8rem; background: rgba(255,255,255,0.02); transition: background 0.2s; }
-    .stat-cell:hover { background: rgba(117,52,225,0.15); }
-    .stat-n { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; color: var(--white); line-height: 1; margin-bottom: 0.4rem; }
-    .stat-n span { color: var(--purple-mid); }
-    .stat-d { font-size: 0.82rem; color: rgba(255,255,255,0.35); line-height: 1.5; }
-    .brand-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .brand-chip { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 0.28rem 0.75rem; border-radius: 100px; transition: color 0.2s, border-color 0.2s; }
-    .brand-chip:hover { color: var(--purple-mid); border-color: var(--purple-mid); }
+    /* STATS */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); }
+    .stat-cell { padding: 3rem 2.5rem; border-right: 1px solid var(--line); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-n { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; color: var(--purple); margin-bottom: 0.5rem; line-height: 1; }
+    .stat-d { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+    .brands { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; }
+    .brand { font-size: 0.75rem; font-weight: 500; color: var(--gray); border: 1px solid var(--line); padding: 0.3rem 0.85rem; border-radius: 100px; transition: border-color 0.2s, color 0.2s; }
+    .brand:hover { border-color: var(--purple); color: var(--purple); }
 
     /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
-    .about-body p { font-size: 0.98rem; color: var(--gray); line-height: 1.85; margin-bottom: 1.1rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .about-body p { font-size: 0.98rem; color: var(--gray); line-height: 1.9; margin-bottom: 1.1rem; }
     .about-body p strong { color: var(--black); font-weight: 600; }
-    .aside-box { background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem; }
-    .aside-label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.8rem; }
-    .pill-wrap { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.2rem; }
-    .pill { font-size: 0.73rem; font-weight: 500; color: var(--gray); background: var(--white); border: 1px solid var(--line); padding: 0.28rem 0.7rem; border-radius: 100px; }
-    .aside-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .aside-list li { font-size: 0.83rem; color: var(--gray); display: flex; align-items: flex-start; gap: 0.5rem; }
-    .aside-list li::before { content: '→'; color: var(--purple); font-size: 0.7rem; margin-top: 0.15rem; flex-shrink: 0; }
+    .about-aside { background: var(--light-gray); padding: 2rem; border-radius: 8px; }
+    .aside-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.8rem; }
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pill { font-size: 0.75rem; font-weight: 500; color: var(--gray); background: var(--white); border: 1px solid var(--line); padding: 0.3rem 0.75rem; border-radius: 100px; }
 
     /* CONTACT */
-    #contact .inner { padding-bottom: 0; }
-    .contact-intro { font-size: 0.98rem; color: var(--gray); line-height: 1.8; max-width: 480px; margin-bottom: 1.8rem; }
-    .form-toggle { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Instrument Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--white); background: var(--purple); border: none; padding: 0.8rem 1.8rem; border-radius: 100px; cursor: pointer; transition: opacity 0.2s; }
-    .form-toggle:hover { opacity: 0.85; }
-    .form-toggle.open { background: var(--black); }
-    .toggle-icon { font-size: 1rem; line-height: 1; }
-    .collapsible-form { display: none; flex-direction: column; gap: 1rem; margin-top: 2rem; padding: 1.8rem; border: 1px solid var(--line); border-radius: 10px; max-width: 520px; }
-    .collapsible-form.open { display: flex; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .fg { display: flex; flex-direction: column; gap: 0.3rem; }
-    .fg label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
-    .fg input, .fg textarea, .fg select { background: var(--white); border: 1.5px solid var(--line); color: var(--black); font-family: 'Instrument Sans', sans-serif; font-size: 0.93rem; padding: 0.7rem 0.85rem; outline: none; border-radius: 6px; transition: border-color 0.2s; width: 100%; }
-    .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--purple); }
-    .fg textarea { resize: vertical; min-height: 100px; }
-    .form-submit { font-family: 'Instrument Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--white); background: var(--purple); border: none; padding: 0.8rem; border-radius: 100px; cursor: pointer; transition: opacity 0.2s; text-align: center; text-decoration: none; display: block; }
-    .form-submit:hover { opacity: 0.85; }
-    .icon-row { border-top: 1px solid var(--line); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
+    #contact { padding: 7rem 4rem; border-bottom: 1px solid var(--line); text-align: center; }
+    #contact h2 { margin-bottom: 1rem; }
+    .contact-sub { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 2.5rem; }
+
+    /* ICONS */
+    .icon-row { padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: center; gap: 3rem; border-bottom: 1px solid var(--line); }
     .ic { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; color: var(--gray); transition: color 0.2s; }
     .ic:hover { color: var(--purple); }
     .ic svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
     .ic span { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 
     /* ART BANNER */
-    #art-banner { background: var(--cream); border-top: 1px solid var(--line); padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    #art-banner { background: var(--light-gray); padding: 1.2rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--line); }
     #art-banner p { font-size: 0.83rem; color: var(--gray); }
     #art-banner a { font-size: 0.83rem; font-weight: 600; color: var(--purple); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 0.1rem; transition: opacity 0.2s; white-space: nowrap; }
     #art-banner a:hover { opacity: 0.7; }
 
     /* FOOTER */
-    footer { background: var(--black); padding: 1.8rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
-    .footer-name { font-size: 0.85rem; font-weight: 700; color: var(--white); }
+    footer { padding: 2rem 4rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-size: 0.85rem; font-weight: 700; color: var(--black); }
     .footer-links { display: flex; gap: 1.8rem; }
-    .footer-links a { font-size: 0.7rem; font-weight: 500; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--purple-mid); }
-    footer .copy { font-size: 0.67rem; color: rgba(255,255,255,0.2); }
+    .footer-links a { font-size: 0.72rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--purple); }
+    footer .copy { font-size: 0.68rem; color: var(--gray); }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
-      #hero, .inner { padding-left: 1.5rem; padding-right: 1.5rem; }
-      #hero { padding-top: 4rem; padding-bottom: 3.5rem; }
-      .svc-row { grid-template-columns: 1fr; gap: 0.5rem; }
-      .stats-row { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .icon-row { gap: 1.5rem; flex-wrap: wrap; padding: 1.8rem 1.5rem; }
-      #art-banner { padding: 1rem 1.5rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.8rem 1.5rem; }
-      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+      #hero { padding: 6rem 1.5rem 5rem; }
+      .section { padding: 5rem 1.5rem; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-cell { border-right: none; border-bottom: 1px solid var(--line); }
+      .stat-cell:last-child { border-bottom: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      #contact { padding: 5rem 1.5rem; }
+      .icon-row { gap: 1.5rem; flex-wrap: wrap; padding: 2rem 1.5rem; }
+      #art-banner { padding: 1.2rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
     }
   </style>
 </head>
@@ -145,7 +122,7 @@
   <a href="#hero" class="nav-name">Aniyah Smith</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#cred">Experience</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -153,77 +130,76 @@
 </nav>
 
 <section id="hero">
-  <div class="hero-tag">NYC · Available for new clients</div>
+  <div class="hero-tag">Marketing Consultant · NYC</div>
   <h1>I help small businesses <span>grow.</span></h1>
-  <p class="hero-desc">Real strategy, real attention, no agency overhead. I bring <strong>7+ years of brand and marketing experience</strong> — earned at some of the biggest names in the industry — to businesses that actually excite me.</p>
+  <p class="hero-sub">Real strategy, real attention, no agency overhead. <strong>7+ years of experience</strong> brought directly to businesses that excite me.</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Work With Me</a>
     <a href="#services" class="btn-ghost">See Services</a>
   </div>
 </section>
 
-<div class="section-wrap" id="services">
-  <div class="inner">
+<div style="border-bottom: 1px solid var(--line);">
+  <div class="section" id="services" style="padding-bottom: 6rem;">
     <div class="section-tag">Services</div>
     <h2>What I <span>offer.</span></h2>
-    <div class="svc-list">
-      <div class="svc-row">
-        <div class="svc-name">Brand & Positioning</div>
-        <div class="svc-body">Who you are, who you're talking to, and how to say it. Brand voice, messaging framework, and competitive positioning — for businesses whose brand hasn't caught up to where they actually are.</div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-title">Brand & Positioning</div>
+        <div class="svc-body">Who you are, who you're talking to, and how to say it. Brand voice, messaging, and competitive positioning.</div>
       </div>
-      <div class="svc-row">
-        <div class="svc-name">Social Media Management</div>
-        <div class="svc-body">Strategy, content planning, and execution on a monthly retainer. You run your business — I handle showing up online for it.</div>
+      <div class="svc-card">
+        <div class="svc-title">Social Media Management</div>
+        <div class="svc-body">Monthly retainer covering strategy, content, and execution. You run your business — I handle showing up online.</div>
       </div>
-      <div class="svc-row">
-        <div class="svc-name">Launch & Campaign Strategy</div>
-        <div class="svc-body">New product, new location, new season. I'll build the plan that gets people paying attention and taking action — one-time or ongoing.</div>
+      <div class="svc-card">
+        <div class="svc-title">Launch & Campaign Strategy</div>
+        <div class="svc-body">New product, new location, new season. A plan that gets people paying attention and taking action.</div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="section-wrap" id="cred">
-  <div class="inner">
+<div style="border-bottom: 1px solid var(--line);">
+  <div class="section" id="experience">
     <div class="section-tag">Experience</div>
     <h2>I've done this <span>at scale.</span></h2>
-    <p class="cred-body">Before going independent I spent 7+ years inside some of the most demanding marketing environments out there. <strong>You get that level of thinking — without the agency markup.</strong></p>
-    <div class="stats-row">
+    <div class="stats-grid">
       <div class="stat-cell">
-        <div class="stat-n"><span>$3</span>B</div>
-        <div class="stat-d">Revenue from a mobile game launch I built the consumer insights strategy for — fastest growing in history.</div>
+        <div class="stat-n">$3B</div>
+        <div class="stat-d">Revenue from a mobile game launch I built the consumer insights strategy for.</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-n"><span>+118</span>%</div>
-        <div class="stat-d">Sales growth in 3 months from an influencer program I designed and ran end-to-end.</div>
+        <div class="stat-n">+118%</div>
+        <div class="stat-d">Sales growth in 3 months from an influencer program I designed end-to-end.</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-n"><span>$2.4</span>M</div>
+        <div class="stat-n">$2.4M</div>
         <div class="stat-d">Revenue in one year from a product quiz I built from scratch.</div>
       </div>
     </div>
-    <div class="brand-row">
-      <span class="brand-chip">Tarte Cosmetics</span>
-      <span class="brand-chip">bareMinerals</span>
-      <span class="brand-chip">Vox Media</span>
-      <span class="brand-chip">Rokt</span>
-      <span class="brand-chip">Danessa Myricks Beauty</span>
-      <span class="brand-chip">NASDAQ</span>
+    <div class="brands">
+      <span class="brand">Tarte Cosmetics</span>
+      <span class="brand">bareMinerals</span>
+      <span class="brand">Vox Media</span>
+      <span class="brand">Rokt</span>
+      <span class="brand">Danessa Myricks Beauty</span>
+      <span class="brand">NASDAQ</span>
     </div>
   </div>
 </div>
 
-<div class="section-wrap" id="about">
-  <div class="inner">
+<div style="border-bottom: 1px solid var(--line);">
+  <div class="section" id="about">
     <div class="section-tag">About Aniyah</div>
     <h2>The person <span>behind it.</span></h2>
     <div class="about-grid">
       <div class="about-body">
-        <p>I have an <strong>MBA in Marketing & Analytics from Northeastern</strong> and spent years inside big brands learning what actually moves the needle — and what's just noise.</p>
-        <p>Going independent was a deliberate choice. I want to work with businesses where the owner cares as much about their brand as I do, and where showing up for a client actually means something.</p>
-        <p>Outside of work: I run marathons (Tokyo and NYC done, London is next), make content on TikTok as <strong>@aniyah.s</strong>, am a Shokz brand ambassador, and I knit. I also write — which means I know how to tell a story.</p>
+        <p>I have an <strong>MBA in Marketing & Analytics from Northeastern</strong> and spent years inside big brands learning what actually moves the needle.</p>
+        <p>Going independent was deliberate. I want to work with businesses where the owner cares as much about their brand as I do, and where the work actually means something.</p>
+        <p>Outside of work: I run marathons (Tokyo and NYC done, London is next), make content on TikTok as <strong>@aniyah.s</strong>, and I'm a Shokz brand ambassador.</p>
       </div>
-      <div class="aside-box">
+      <div class="about-aside">
         <div class="aside-label">Best fit for</div>
         <div class="pill-wrap">
           <span class="pill">Local NYC businesses</span>
@@ -236,20 +212,19 @@
   </div>
 </div>
 
-<div class="section-wrap" id="contact">
-  <div class="inner">
-    <div class="section-tag">Contact</div>
-    <h2>Let's <span>talk.</span></h2>
-    <p class="contact-intro">I keep my client list small so I can actually show up. If this sounds like what you need — reach out directly.</p>
-    <a href="/cdn-cgi/l/email-protection#5d3c3334243c353e732e303429351d3a303c3431733e3230" class="btn-primary">Email Me</a>
-  </div>
-  <div class="icon-row">
-    <a href="/cdn-cgi/l/email-protection#93f2fdfaeaf2fbf0bde0fefae7fbd3f4fef2faffbdf0fcfe" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><span>Email</span></a>
-    <a href="https://www.tiktok.com/@aniyah.s" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg><span>TikTok</span></a>
-    <a href="https://aniyahs.substack.com" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 19l4-4 4 4 4-4 4 4V14H4v5z"/></svg><span>Substack</span></a>
-    <a href="https://aniyahsmith.com/s/Portfolio-June-2025-55ad.pdf" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Portfolio</span></a>
-    <a href="https://www.linkedin.com/in/aniyahsmith" target="_blank" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 6 0v5"/></svg><span>LinkedIn</span></a>
-  </div>
+<div id="contact">
+  <div class="section-tag" style="text-align:center">Contact</div>
+  <h2 style="text-align:center; margin-bottom:1rem;">Let's <span style="color:var(--purple)">talk.</span></h2>
+  <p class="contact-sub">I keep my client list small so I can actually show up. Reach out directly.</p>
+  <a href="mailto:aniyahc.smith@gmail.com" class="btn-primary">Email Me</a>
+</div>
+
+<div class="icon-row">
+  <a href="mailto:aniyahc.smith@gmail.com" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><span>Email</span></a>
+  <a href="https://www.tiktok.com/@aniyah.s" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg><span>TikTok</span></a>
+  <a href="https://aniyahs.substack.com" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 19l4-4 4 4 4-4 4 4V14H4v5z"/></svg><span>Substack</span></a>
+  <a href="https://aniyahsmith.com/s/Portfolio-June-2025-55ad.pdf" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Portfolio</span></a>
+  <a href="https://www.linkedin.com/in/aniyahsmith" target="_blank" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 6 0v5"/></svg><span>LinkedIn</span></a>
 </div>
 
 <div id="art-banner">
@@ -267,6 +242,11 @@
   <p class="copy">© 2025 Aniyah Smith</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function toggleForm(btn) {
-    btn.classLi
+<script>
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20 ? '0 1px 10px rgba(0,0,0,0.04)' : 'none';
+  });
+</script>
+</body>
+</html>
