@@ -3,143 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aniyah Smith — Marketing Consultant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <title>Aniyah Smith</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --black: #0E0E0D;
-      --off-white: #F9F8F5;
-      --cream: #F1EDE4;
-      --purple: #7534E1;
-      --purple-pale: #EEE8FF;
-      --purple-mid: #9F6EF5;
+      --white: #FAFAFA;
+      --cream: #F4F2EF;
+      --purple: #5C1F7A;
+      --purple-mid: #8B4DB5;
       --gray: #71706C;
       --line: #E3DED5;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--off-white); color: var(--black); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: var(--off-white); border-bottom: 1px solid var(--line); }
-    .nav-name { font-size: 0.9rem; font-weight: 700; letter-spacing: -0.01em; color: var(--black); text-decoration: none; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+    body { background: var(--white); color: var(--black); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: var(--white); border-bottom: 1px solid var(--line); }
+    .nav-name { font-size: 0.9rem; font-weight: 700; color: var(--black); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
     .nav-links a { font-size: 0.78rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--black); }
-    .nav-cta { font-size: 0.78rem; font-weight: 600; color: var(--off-white); background: var(--black); padding: 0.55rem 1.3rem; text-decoration: none; border-radius: 100px; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--purple); }
-    #hero { padding: 6rem 2.5rem 5rem; border-bottom: 1px solid var(--line); max-width: 1100px; margin: 0 auto; }
-    .hero-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.6rem; }
-    .hero-kicker::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--purple); }
-    h1 { font-family: 'Instrument Serif', serif; font-size: clamp(3rem, 6vw, 6.5rem); font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; max-width: 820px; }
-    h1 em { font-style: italic; color: var(--purple); }
-    .hero-rule { border: none; border-top: 1px solid var(--line); margin: 3rem 0; }
-    .hero-lower { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: end; }
-    .hero-desc { font-size: 1.05rem; color: var(--gray); line-height: 1.85; }
+    .nav-cta { font-size: 0.78rem; font-weight: 600; color: var(--white); background: var(--purple); padding: 0.55rem 1.3rem; text-decoration: none; border-radius: 100px; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    #hero { padding: 6rem 2.5rem; border-bottom: 1px solid var(--line); max-width: 900px; margin: 0 auto; }
+    .hero-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.6rem; }
+    .hero-tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--purple); }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    h1 span { color: var(--purple); }
+    .hero-desc { font-size: 1.05rem; color: var(--gray); line-height: 1.8; max-width: 560px; margin-bottom: 2.5rem; }
     .hero-desc strong { color: var(--black); font-weight: 600; }
-    .hero-right-col { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
-    .avail-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; background: var(--cream); border: 1px solid var(--line); padding: 0.4rem 0.9rem; border-radius: 100px; color: var(--gray); }
-    .avail-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; }
-    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .btn-primary { font-size: 0.82rem; font-weight: 600; color: var(--off-white); background: var(--purple); padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 100px; transition: opacity 0.2s; display: inline-block; }
+    .hero-actions { display: flex; gap: 0.8rem; align-items: center; }
+    .btn-primary { font-size: 0.82rem; font-weight: 600; color: var(--white); background: var(--purple); padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 100px; transition: opacity 0.2s; display: inline-block; }
     .btn-primary:hover { opacity: 0.85; }
     .btn-ghost { font-size: 0.82rem; font-weight: 600; color: var(--black); border: 1.5px solid var(--line); padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 100px; transition: border-color 0.2s, color 0.2s; display: inline-block; }
     .btn-ghost:hover { border-color: var(--purple); color: var(--purple); }
-    .outer-wrap { border-bottom: 1px solid var(--line); }
-    .inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2.5rem; }
-    .section-kicker { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
-    .section-kicker::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
-    h2 { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 4rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
-    h2 em { font-style: italic; color: var(--purple); }
-    #services .subhead { font-size: 1rem; color: var(--gray); margin-top: 0.8rem; max-width: 500px; line-height: 1.8; }
-    .services-list { margin-top: 3.5rem; border-top: 1px solid var(--line); }
-    .svc-row { display: grid; grid-template-columns: 2fr 3fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--line); transition: padding-left 0.2s; }
-    .svc-row:hover { padding-left: 0.6rem; }
-    .svc-name { font-family: 'Instrument Serif', serif; font-size: 1.6rem; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; }
-    .svc-body { font-size: 0.93rem; color: var(--gray); line-height: 1.8; padding-top: 0.25rem; }
-    .svc-body strong { color: var(--black); font-weight: 600; }
-    .pricing-note { margin-top: 2.5rem; padding: 1.5rem 2rem; background: var(--cream); border-left: 3px solid var(--purple); font-size: 0.9rem; color: var(--gray); line-height: 1.7; border-radius: 0 6px 6px 0; }
-    .pricing-note strong { color: var(--black); font-weight: 600; }
+
+    /* SHARED */
+    .section-wrap { border-bottom: 1px solid var(--line); }
+    .inner { max-width: 900px; margin: 0 auto; padding: 4.5rem 2.5rem; }
+    .section-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 2.5rem; }
+    h2 span { color: var(--purple); }
+
+    /* SERVICES */
+    .svc-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+    .svc-row { display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--line); align-items: start; transition: padding-left 0.2s; }
+    .svc-row:hover { padding-left: 0.5rem; }
+    .svc-name { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
+    .svc-body { font-size: 0.93rem; color: var(--gray); line-height: 1.75; }
+
+    /* EXPERIENCE */
     #cred { background: var(--black); }
-    #cred .section-kicker { color: var(--purple-mid); }
-    #cred .section-kicker::before { background: var(--purple-mid); }
-    #cred h2 { color: var(--off-white); }
-    #cred h2 em { color: var(--purple-mid); }
-    .cred-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
-    .cred-copy { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.85; }
-    .cred-copy strong { color: rgba(255,255,255,0.8); font-weight: 500; }
-    .cred-copy em { font-style: italic; color: var(--purple-mid); }
-    .brand-row { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .brand-chip { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 0.3rem 0.8rem; border-radius: 100px; transition: color 0.2s, border-color 0.2s; }
+    #cred .section-tag { color: var(--purple-mid); }
+    #cred .section-tag::before { background: var(--purple-mid); }
+    #cred h2 { color: var(--white); }
+    #cred h2 span { color: var(--purple-mid); }
+    .cred-body { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 2rem; max-width: 560px; }
+    .cred-body strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+    .stat-cell { padding: 1.8rem; background: rgba(255,255,255,0.02); transition: background 0.2s; }
+    .stat-cell:hover { background: rgba(117,52,225,0.15); }
+    .stat-n { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; color: var(--white); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-n span { color: var(--purple-mid); }
+    .stat-d { font-size: 0.82rem; color: rgba(255,255,255,0.35); line-height: 1.5; }
+    .brand-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .brand-chip { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 0.28rem 0.75rem; border-radius: 100px; transition: color 0.2s, border-color 0.2s; }
     .brand-chip:hover { color: var(--purple-mid); border-color: var(--purple-mid); }
-    .stats-col { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
-    .stat-row { padding: 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.2s; }
-    .stat-row:last-child { border-bottom: none; }
-    .stat-row:hover { background: rgba(117,52,225,0.12); }
-    .stat-num { font-family: 'Instrument Serif', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 400; line-height: 0.95; color: var(--off-white); margin-bottom: 0.5rem; }
-    .stat-num em { font-style: italic; color: var(--purple-mid); }
-    .stat-desc { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.55; }
-    #about .about-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
-    .about-body p { font-size: 1rem; color: var(--gray); line-height: 1.9; margin-bottom: 1.2rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+    .about-body p { font-size: 0.98rem; color: var(--gray); line-height: 1.85; margin-bottom: 1.1rem; }
     .about-body p strong { color: var(--black); font-weight: 600; }
-    .about-body p em { color: var(--purple); font-style: normal; font-weight: 500; }
-    .about-sidebar { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 76px; }
-    .sidebar-box { background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; }
-    .sb-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.9rem; }
-    .sb-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .sb-pill { font-size: 0.75rem; font-weight: 500; color: var(--gray); background: var(--off-white); border: 1px solid var(--line); padding: 0.3rem 0.75rem; border-radius: 100px; transition: border-color 0.2s, color 0.2s; }
-    .sb-pill:hover { border-color: var(--purple); color: var(--purple); }
-    .sb-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .sb-list li { font-size: 0.85rem; color: var(--gray); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.4; }
-    .sb-list li::before { content: '→'; color: var(--purple); font-size: 0.75rem; margin-top: 0.1rem; flex-shrink: 0; }
+    .aside-box { background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem; }
+    .aside-label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.8rem; }
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.2rem; }
+    .pill { font-size: 0.73rem; font-weight: 500; color: var(--gray); background: var(--white); border: 1px solid var(--line); padding: 0.28rem 0.7rem; border-radius: 100px; }
+    .aside-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .aside-list li { font-size: 0.83rem; color: var(--gray); display: flex; align-items: flex-start; gap: 0.5rem; }
+    .aside-list li::before { content: '→'; color: var(--purple); font-size: 0.7rem; margin-top: 0.15rem; flex-shrink: 0; }
+
+    /* CONTACT */
     #contact .inner { padding-bottom: 0; }
-    .contact-top { max-width: 520px; margin-top: 1.2rem; }
-    .contact-top p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 2rem; }
-    .form-toggle { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Instrument Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--off-white); background: var(--purple); border: none; padding: 0.8rem 1.8rem; border-radius: 100px; cursor: pointer; transition: opacity 0.2s; }
+    .contact-intro { font-size: 0.98rem; color: var(--gray); line-height: 1.8; max-width: 480px; margin-bottom: 1.8rem; }
+    .form-toggle { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Instrument Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--white); background: var(--purple); border: none; padding: 0.8rem 1.8rem; border-radius: 100px; cursor: pointer; transition: opacity 0.2s; }
     .form-toggle:hover { opacity: 0.85; }
     .form-toggle.open { background: var(--black); }
     .toggle-icon { font-size: 1rem; line-height: 1; }
-    .collapsible-form { display: none; flex-direction: column; gap: 1.1rem; margin-top: 1.5rem; padding: 2rem; border: 1px solid var(--line); border-radius: 10px; max-width: 540px; }
+    .collapsible-form { display: none; flex-direction: column; gap: 1rem; margin-top: 2rem; padding: 1.8rem; border: 1px solid var(--line); border-radius: 10px; max-width: 520px; }
     .collapsible-form.open { display: flex; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .fg { display: flex; flex-direction: column; gap: 0.35rem; }
-    .fg label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
-    .fg input, .fg textarea, .fg select { background: var(--off-white); border: 1.5px solid var(--line); color: var(--black); font-family: 'Instrument Sans', sans-serif; font-size: 0.93rem; padding: 0.72rem 0.9rem; outline: none; border-radius: 6px; transition: border-color 0.2s; width: 100%; }
+    .fg { display: flex; flex-direction: column; gap: 0.3rem; }
+    .fg label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+    .fg input, .fg textarea, .fg select { background: var(--white); border: 1.5px solid var(--line); color: var(--black); font-family: 'Instrument Sans', sans-serif; font-size: 0.93rem; padding: 0.7rem 0.85rem; outline: none; border-radius: 6px; transition: border-color 0.2s; width: 100%; }
     .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--purple); }
-    .fg textarea { resize: vertical; min-height: 110px; }
-    .form-submit { font-family: 'Instrument Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--off-white); background: var(--purple); border: none; padding: 0.85rem 2rem; border-radius: 100px; cursor: pointer; transition: opacity 0.2s; text-align: center; text-decoration: none; display: block; }
+    .fg textarea { resize: vertical; min-height: 100px; }
+    .form-submit { font-family: 'Instrument Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--white); background: var(--purple); border: none; padding: 0.8rem; border-radius: 100px; cursor: pointer; transition: opacity 0.2s; text-align: center; text-decoration: none; display: block; }
     .form-submit:hover { opacity: 0.85; }
-    .icon-row { border-top: 1px solid var(--line); padding: 2.2rem 2.5rem; display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
+    .icon-row { border-top: 1px solid var(--line); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
     .ic { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; color: var(--gray); transition: color 0.2s; }
     .ic:hover { color: var(--purple); }
-    .ic svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-    .ic span { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-    #art-banner { background: var(--cream); border-top: 1px solid var(--line); padding: 1.2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    #art-banner p { font-size: 0.85rem; color: var(--gray); }
-    #art-banner a { font-size: 0.85rem; font-weight: 600; color: var(--purple); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; border-bottom: 1px solid currentColor; padding-bottom: 0.1rem; transition: opacity 0.2s; white-space: nowrap; }
+    .ic svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .ic span { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ART BANNER */
+    #art-banner { background: var(--cream); border-top: 1px solid var(--line); padding: 1rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    #art-banner p { font-size: 0.83rem; color: var(--gray); }
+    #art-banner a { font-size: 0.83rem; font-weight: 600; color: var(--purple); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 0.1rem; transition: opacity 0.2s; white-space: nowrap; }
     #art-banner a:hover { opacity: 0.7; }
-    footer { background: var(--black); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
-    .footer-name { font-size: 0.88rem; font-weight: 700; color: var(--off-white); }
+
+    /* FOOTER */
+    footer { background: var(--black); padding: 1.8rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-size: 0.85rem; font-weight: 700; color: var(--white); }
     .footer-links { display: flex; gap: 1.8rem; }
-    .footer-links a { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a { font-size: 0.7rem; font-weight: 500; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--purple-mid); }
-    footer .copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
-    @media (max-width: 820px) {
+    footer .copy { font-size: 0.67rem; color: rgba(255,255,255,0.2); }
+
+    @media (max-width: 720px) {
       nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       #hero, .inner { padding-left: 1.5rem; padding-right: 1.5rem; }
-      #hero { padding-top: 4.5rem; padding-bottom: 3.5rem; }
-      .hero-lower { grid-template-columns: 1fr; gap: 2rem; }
-      .svc-row { grid-template-columns: 1fr; gap: 0.8rem; }
-      .cred-layout { grid-template-columns: 1fr; gap: 3rem; }
-      #about .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-sidebar { position: static; }
+      #hero { padding-top: 4rem; padding-bottom: 3.5rem; }
+      .svc-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .stats-row { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
-      .icon-row { gap: 1.6rem; flex-wrap: wrap; padding: 2rem 1.5rem; }
-      #art-banner { padding: 1.2rem 1.5rem; }
-      footer { flex-direction: column; gap: 1.2rem; text-align: center; padding: 2rem 1.5rem; }
-      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+      .icon-row { gap: 1.5rem; flex-wrap: wrap; padding: 1.8rem 1.5rem; }
+      #art-banner { padding: 1rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.8rem 1.5rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
     }
   </style>
 </head>
 <body>
+
 <nav>
   <a href="#hero" class="nav-name">Aniyah Smith</a>
   <ul class="nav-links">
@@ -147,147 +148,110 @@
     <li><a href="#cred">Experience</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://aniyahs.substack.com" target="_blank">Substack</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Work With Me</a>
 </nav>
 
 <section id="hero">
-  <div class="hero-kicker">Marketing Consultant · NYC</div>
-  <h1>I help small businesses<br/>grow — <em>on purpose.</em></h1>
-  <hr class="hero-rule" />
-  <div class="hero-lower">
-    <p class="hero-desc">Real strategy, real attention, no agency overhead. I bring <strong>7+ years of brand and marketing experience</strong> — earned at some of the biggest names in the industry — directly to businesses that actually excite me.</p>
-    <div class="hero-right-col">
-      <span class="avail-badge">Available for new clients</span>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Work With Me</a>
-        <a href="#services" class="btn-ghost">See Services</a>
-      </div>
-    </div>
+  <div class="hero-tag">NYC · Available for new clients</div>
+  <h1>I help small businesses <span>grow.</span></h1>
+  <p class="hero-desc">Real strategy, real attention, no agency overhead. I bring <strong>7+ years of brand and marketing experience</strong> — earned at some of the biggest names in the industry — to businesses that actually excite me.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Work With Me</a>
+    <a href="#services" class="btn-ghost">See Services</a>
   </div>
 </section>
 
-<div class="outer-wrap" id="services">
+<div class="section-wrap" id="services">
   <div class="inner">
-    <div class="section-kicker">Services</div>
-    <h2>What I can do<br/><em>for you.</em></h2>
-    <p class="subhead">Straightforward offerings. No retainer you don't need, no scope creep, no surprises.</p>
-    <div class="services-list">
+    <div class="section-tag">Services</div>
+    <h2>What I <span>offer.</span></h2>
+    <div class="svc-list">
       <div class="svc-row">
-        <div class="svc-name">Brand &<br/>Positioning</div>
-        <div class="svc-body">Figure out who you are, who you're talking to, and how to say it in a way that actually resonates. Great for businesses that are growing but feel like their brand hasn't caught up yet. Includes brand voice, messaging framework, and competitive positioning.</div>
-      </div>
-      <div class="svc-row">
-        <div class="svc-name">Social Media<br/>Management</div>
-        <div class="svc-body">Monthly retainer covering strategy, content planning, and execution. <strong>You focus on running your business — I'll handle showing up online for it.</strong> Platform strategy, content calendar, copy, and reporting. Platforms prioritized based on where your audience actually is.</div>
+        <div class="svc-name">Brand & Positioning</div>
+        <div class="svc-body">Who you are, who you're talking to, and how to say it. Brand voice, messaging framework, and competitive positioning — for businesses whose brand hasn't caught up to where they actually are.</div>
       </div>
       <div class="svc-row">
-        <div class="svc-name">Launch &<br/>Campaign Strategy</div>
-        <div class="svc-body">New product, new location, new season — I'll build the plan that gets people paying attention and taking action. One-time project or ongoing. Covers channel strategy, messaging, timeline, and creative direction.</div>
+        <div class="svc-name">Social Media Management</div>
+        <div class="svc-body">Strategy, content planning, and execution on a monthly retainer. You run your business — I handle showing up online for it.</div>
       </div>
-    </div>
-    <p class="pricing-note"><strong>On pricing:</strong> Most clients start with a discovery call so I can understand what you actually need before recommending anything. Retainers typically run <strong>$1,500–$4,000/month</strong> depending on scope. Project rates available too — just reach out.</p>
-  </div>
-</div>
-
-<div class="outer-wrap" id="cred">
-  <div class="inner">
-    <div class="section-kicker">Experience</div>
-    <h2>I've done this<br/><em>at scale.</em></h2>
-    <div class="cred-layout">
-      <div>
-        <p class="cred-copy">Before going independent, I spent 7+ years inside some of the most demanding marketing environments in the industry. I chose to go freelance not because I had to — <em>but because I wanted to work with businesses where my work actually matters.</em><br/><br/>The same thinking I applied at the enterprise level, I now bring to businesses with real stories, real owners, and real stakes. <strong>You get the strategy. Without the agency markup.</strong></p>
-        <div class="brand-row">
-          <span class="brand-chip">Tarte Cosmetics</span>
-          <span class="brand-chip">bareMinerals</span>
-          <span class="brand-chip">Vox Media</span>
-          <span class="brand-chip">Rokt</span>
-          <span class="brand-chip">Danessa Myricks Beauty</span>
-          <span class="brand-chip">NASDAQ</span>
-        </div>
-      </div>
-      <div class="stats-col">
-        <div class="stat-row">
-          <div class="stat-num"><em>$3B</em></div>
-          <div class="stat-desc">Revenue behind a mobile game launch I built the consumer insights strategy for. Fastest growing in history — $3B in 473 days.</div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-num"><em>+118%</em></div>
-          <div class="stat-desc">Sales growth in 3 months from an influencer marketing program I designed and executed end-to-end.</div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-num"><em>$2.4M</em></div>
-          <div class="stat-desc">Revenue in one year from a product quiz I built from scratch. Data and creativity, working together.</div>
-        </div>
+      <div class="svc-row">
+        <div class="svc-name">Launch & Campaign Strategy</div>
+        <div class="svc-body">New product, new location, new season. I'll build the plan that gets people paying attention and taking action — one-time or ongoing.</div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="outer-wrap" id="about">
+<div class="section-wrap" id="cred">
   <div class="inner">
-    <div class="section-kicker">About Aniyah</div>
-    <h2>The person<br/><em>behind it.</em></h2>
-    <div class="about-layout">
+    <div class="section-tag">Experience</div>
+    <h2>I've done this <span>at scale.</span></h2>
+    <p class="cred-body">Before going independent I spent 7+ years inside some of the most demanding marketing environments out there. <strong>You get that level of thinking — without the agency markup.</strong></p>
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-n"><span>$3</span>B</div>
+        <div class="stat-d">Revenue from a mobile game launch I built the consumer insights strategy for — fastest growing in history.</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n"><span>+118</span>%</div>
+        <div class="stat-d">Sales growth in 3 months from an influencer program I designed and ran end-to-end.</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n"><span>$2.4</span>M</div>
+        <div class="stat-d">Revenue in one year from a product quiz I built from scratch.</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <span class="brand-chip">Tarte Cosmetics</span>
+      <span class="brand-chip">bareMinerals</span>
+      <span class="brand-chip">Vox Media</span>
+      <span class="brand-chip">Rokt</span>
+      <span class="brand-chip">Danessa Myricks Beauty</span>
+      <span class="brand-chip">NASDAQ</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap" id="about">
+  <div class="inner">
+    <div class="section-tag">About Aniyah</div>
+    <h2>The person <span>behind it.</span></h2>
+    <div class="about-grid">
       <div class="about-body">
-        <p style="margin-top:2rem">I'm a marketer, but I'm also just a person who cares a lot about the work. I have an <strong>MBA in Marketing & Analytics from Northeastern</strong> and spent years inside big brands learning what actually moves the needle — and what's just noise.</p>
-        <p>Going independent was a choice I made deliberately. I wanted to work with businesses where the owner is as excited about their brand as I am, where I can see the impact of the work, and where showing up for a client actually means something. <em>That's the kind of work I'm here for.</em></p>
-        <p>Outside of work: I run marathons (Tokyo and NYC done, London is next), I create content on TikTok under <strong>@aniyah.s</strong>, I'm a Shokz brand ambassador, and I knit. I also write — which means I know how to tell a story, and that shows up in everything I do.</p>
+        <p>I have an <strong>MBA in Marketing & Analytics from Northeastern</strong> and spent years inside big brands learning what actually moves the needle — and what's just noise.</p>
+        <p>Going independent was a deliberate choice. I want to work with businesses where the owner cares as much about their brand as I do, and where showing up for a client actually means something.</p>
+        <p>Outside of work: I run marathons (Tokyo and NYC done, London is next), make content on TikTok as <strong>@aniyah.s</strong>, am a Shokz brand ambassador, and I knit. I also write — which means I know how to tell a story.</p>
       </div>
-      <div class="about-sidebar">
-        <div class="sidebar-box">
-          <div class="sb-label">Best fit for</div>
-          <div class="sb-pills">
-            <span class="sb-pill">Local NYC businesses</span>
-            <span class="sb-pill">Small D2C brands</span>
-            <span class="sb-pill">Service businesses</span>
-            <span class="sb-pill">Founders doing too much</span>
-          </div>
+      <div class="aside-box">
+        <div class="aside-label">Best fit for</div>
+        <div class="pill-wrap">
+          <span class="pill">Local NYC businesses</span>
+          <span class="pill">Small D2C brands</span>
+          <span class="pill">Service businesses</span>
+          <span class="pill">Founders doing too much</span>
         </div>
-        <div class="sidebar-box">
-          <div class="sb-label">A few other things</div>
-          <ul class="sb-list">
-            <li>Marathon runner — Tokyo ✓ NYC ✓ London →</li>
-            <li>TikTok creator @aniyah.s</li>
-            <li>Shokz Brand Ambassador</li>
-            <li>Knitter &amp; creative writer</li>
-          </ul>
-        </div>
+        <div class="aside-label">A few other things</div>
+        <ul class="aside-list">
+          <li>Marathon runner — Tokyo ✓ NYC ✓ London →</li>
+          <li>TikTok creator @aniyah.s</li>
+          <li>Shokz Brand Ambassador</li>
+          <li>Knitter & creative writer</li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 
-<div class="outer-wrap" id="contact">
+<div class="section-wrap" id="contact">
   <div class="inner">
-    <div class="section-kicker">Contact</div>
-    <h2>Let's <em>talk.</em></h2>
-    <div class="contact-top">
-      <p>I keep my client list intentionally small so I can actually show up for people. If this sounds like what you need — reach out.</p>
-      <button class="form-toggle" onclick="toggleForm(this)">Send a Message <span class="toggle-icon">+</span></button>
-      <div class="collapsible-form" id="contact-form">
-        <div class="form-row">
-          <div class="fg"><label>Name</label><input type="text" placeholder="Jane Doe" /></div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="jane@yourbusiness.com" /></div>
-        </div>
-        <div class="fg">
-          <label>What do you need?</label>
-          <select>
-            <option value="">Select a service...</option>
-            <option>Brand &amp; Positioning</option>
-            <option>Social Media Management</option>
-            <option>Launch &amp; Campaign Strategy</option>
-            <option>Not sure yet — let's talk</option>
-          </select>
-        </div>
-        <div class="fg"><label>Tell me about your business</label><textarea placeholder="What do you do, what's the challenge, what are you hoping to achieve?"></textarea></div>
-        <a href="mailto:aniyahc.smith@gmail.com" class="form-submit">Send →</a>
-      </div>
-    </div>
+    <div class="section-tag">Contact</div>
+    <h2>Let's <span>talk.</span></h2>
+    <p class="contact-intro">I keep my client list small so I can actually show up. If this sounds like what you need — reach out directly.</p>
+    <a href="mailto:aniyahc.smith@gmail.com" class="btn-primary">Email Me</a>
   </div>
   <div class="icon-row">
-    <a href="mailto:aniyahc.smith@gmail.com" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><span>Email</span></a>
+    <a href="/cdn-cgi/l/email-protection#93f2fdfaeaf2fbf0bde0fefae7fbd3f4fef2faffbdf0fcfe" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><span>Email</span></a>
     <a href="https://www.tiktok.com/@aniyah.s" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg><span>TikTok</span></a>
     <a href="https://aniyahs.substack.com" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 19l4-4 4 4 4-4 4 4V14H4v5z"/></svg><span>Substack</span></a>
     <a href="https://aniyahsmith.com/s/Portfolio-June-2025-55ad.pdf" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Portfolio</span></a>
@@ -297,7 +261,7 @@
 
 <div id="art-banner">
   <p>Aniyah also takes art commissions.</p>
-  <a href="mailto:aniyahc.smith@gmail.com?subject=Art Commission">And if you need some art →</a>
+  <a href="/cdn-cgi/l/email-protection#fe9f9097879f969dd08d93978a96be99939f9792d09d9193c18d8b9c949b9d8ac3bf8c8adebd919393978d8d979190">And if you need some art →</a>
 </div>
 
 <footer>
@@ -306,22 +270,13 @@
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="https://aniyahs.substack.com" target="_blank">Substack</a>
-    <a href="mailto:aniyahc.smith@gmail.com">Email</a>
   </div>
   <p class="copy">© 2025 Aniyah Smith</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggleForm(btn) {
     btn.classList.toggle('open');
     const form = document.getElementById('contact-form');
     form.classList.toggle('open');
-    btn.querySelector('.toggle-icon').textContent = form.classList.contains('open') ? '×' : '+';
-  }
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    nav.style.boxShadow = window.scrollY > 20 ? '0 1px 12px rgba(0,0,0,0.05)' : 'none';
-  });
-</script>
-</body>
-</html>
+    btn.querySelector('.toggle-icon').text
