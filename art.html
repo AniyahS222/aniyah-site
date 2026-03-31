@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art — Aniyah Smith</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #111110;
+      --white: #FAFAFA;
+      --purple: #5C1F7A;
+      --gray: #777672;
+      --light-gray: #EFEFED;
+      --line: #E5E3DF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 4rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-name { font-size: 0.9rem; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-back { font-size: 0.78rem; font-weight: 500; color: var(--gray); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--purple); }
+
+    /* INTRO */
+    #intro {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+      text-align: center;
+    }
+    .intro-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.8rem; }
+    .intro-body { font-size: 1rem; color: var(--gray); line-height: 1.9; margin-bottom: 1.4rem; }
+    .intro-body strong { color: var(--black); font-weight: 600; }
+    .commission-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--white); background: var(--purple);
+      padding: 0.85rem 2rem; border-radius: 100px;
+      text-decoration: none; transition: opacity 0.2s;
+      margin-top: 1rem;
+    }
+    .commission-cta:hover { opacity: 0.85; }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--line); margin: 0; }
+
+    /* GRID */
+    #grid { padding: 4rem; }
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .art-cell {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: var(--light-gray);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .art-cell img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .art-cell:hover img { transform: scale(1.03); }
+
+    /* Placeholder styling for empty slots */
+    .art-cell.placeholder {
+      display: flex; align-items: center; justify-content: center;
+      background: var(--light-gray);
+    }
+    .placeholder-inner {
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    }
+    .placeholder-inner svg {
+      width: 28px; height: 28px;
+      stroke: #C8C5C0; fill: none;
+      stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .placeholder-inner span {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #C8C5C0;
+    }
+
+    /* CAPTION on hover */
+    .art-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+      color: #fff;
+      font-size: 0.78rem; font-weight: 500;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .art-cell:hover .art-caption { opacity: 1; }
+
+    /* NOTE */
+    #note {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    #note p { font-size: 0.95rem; color: var(--gray); line-height: 1.9; margin-bottom: 1rem; }
+    #note p strong { color: var(--black); font-weight: 600; }
+    #note a { color: var(--purple); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--purple); padding-bottom: 0.05rem; transition: opacity 0.2s; }
+    #note a:hover { opacity: 0.7; }
+
+    /* FOOTER */
+    footer { padding: 1.8rem 4rem; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+    .footer-name { font-size: 0.85rem; font-weight: 700; color: var(--black); text-decoration: none; }
+    footer .copy { font-size: 0.68rem; color: var(--gray); }
+
+    @media (max-width: 760px) {
+      nav { padding: 1rem 1.5rem; }
+      #intro { padding: 5rem 1.5rem 4rem; }
+      #grid { padding: 2rem 1.5rem; }
+      .art-grid { grid-template-columns: repeat(2, 1fr); }
+      #note { padding: 4rem 1.5rem; }
+      footer { padding: 1.8rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Aniyah Smith</a>
+  <a href="/" class="nav-back">← Back to site</a>
+</nav>
+
+<section id="intro">
+  <div class="intro-tag">Art & Commissions</div>
+  <h1>Making things for the love of it.</h1>
+  <p class="intro-body">
+    I've been making art quietly for a long time. It's a practice, an outlet, and one of the most honest things I do.
+  </p>
+  <p class="intro-body">
+    I take a small number of commissions at a time. If something here resonates, or you have an idea you'd like to bring to life, <strong>reach out</strong> — I'd love to hear what you're thinking.
+  </p>
+  <a href="mailto:aniyahc.smith@gmail.com?subject=Art Commission" class="commission-cta">Inquire About a Commission</a>
+</section>
+
+<hr class="divider" />
+
+<section id="grid">
+  <div class="art-grid">
+
+    <!-- Replace src with your actual image paths once uploaded -->
+    <!-- Slot 1 -->
+    <div class="art-cell placeholder">
+      <div class="placeholder-inner">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add image</span>
+      </div>
+    </div>
+
+    <!-- Slot 2 -->
+    <div class="art-cell placeholder">
+      <div class="placeholder-inner">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add image</span>
+      </div>
+    </div>
+
+    <!-- Slot 3 -->
+    <div class="art-cell placeholder">
+      <div class="placeholder-inner">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add image</span>
+      </div>
+    </div>
+
+    <!-- Slot 4 -->
+    <div class="art-cell placeholder">
+      <div class="placeholder-inner">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add image</span>
+      </div>
+    </div>
+
+    <!-- Slot 5 -->
+    <div class="art-cell placeholder">
+      <div class="placeholder-inner">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add image</span>
+      </div>
+    </div>
+
+    <!-- Slot 6 -->
+    <div class="art-cell placeholder">
+      <div class="placeholder-inner">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Add image</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="note">
+  <p>
+    Each piece takes as long as it takes. I'm not interested in rushing the process or producing volume for its own sake. If you're commissioning something, know that it will be made with genuine care — and that it might take a while.
+  </p>
+  <p>
+    To commission a piece or just ask a question, email me at <a href="mailto:aniyahc.smith@gmail.com?subject=Art Commission">aniyahc.smith@gmail.com</a>.
+  </p>
+</section>
+
+<footer>
+  <a href="/" class="footer-name">Aniyah Smith</a>
+  <p class="copy">© 2025 Aniyah Smith</p>
+</footer>
+
+</body>
+</html>
