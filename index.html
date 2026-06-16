@@ -6,321 +6,54 @@
     <title>Aniyah Smith — Creative Marketing & Social Growth</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Elegant & Modern Typography (Syne for confident headers, Inter for clean layout) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #FAFAFX; /* Soft cream/white */
-            --text-color: #1A1C23; /* Deep navy/charcoal for premium contrast */
-            --accent-lavender: #E0D7FF; /* Aesthetic lavender background accents */
-            --accent-blue: #4A6CFA; /* Crisp, trustworthy blue for links/actions */
-            --card-bg: #FFFFFF; /* Pure white for clean separation */
-            --muted-text: #626775;
-            --border-radius: 20px; /* Slightly rounder, softer edges */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, transparent 50%),
-                              radial-gradient(at 50% 0%, rgba(224, 215, 255, 0.3) 0, transparent 50%); /* Subtle lavender glow at the top */
-            color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            position: sticky;
-            top: 0;
-            background: rgba(250, 250, 248, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            text-decoration: none;
-            color: var(--text-color);
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent-blue);
-        }
-
-        .nav-links a {
-            color: var(--muted-text);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
-
-        /* Hero Section */
-        header {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 5%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            background: #F0ECFF;
-            color: #6C52E0;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .badge::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: #6C52E0;
-            border-radius: 50%;
-        }
-
-        h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-            line-height: 1.15;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        h1 span {
-            color: var(--accent-blue);
-            background: linear-gradient(120deg, var(--accent-blue), #9E86FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-p {
-            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-            max-width: 620px;
-            color: var(--muted-text);
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-btn {
-            background-color: var(--text-color);
-            color: #FFF;
-            padding: 1.1rem 2.5rem;
-            border-radius: 40px;
-            font-weight: 500;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            display: inline-block;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            background-color: var(--accent-blue);
-            box-shadow: 0 6px 20px rgba(74, 108, 250, 0.3);
-        }
-
-        /* Subtle Marquee Ticker */
-        .ticker {
-            background: #F3F2F8;
-            padding: 1.2rem 0;
-            overflow: hidden;
-            white-space: nowrap;
-            border-y: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .ticker-wrap {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-        }
-
-        .ticker-item {
-            display: inline-block;
-            padding: 0 3rem;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--muted-text);
-        }
-
-        .ticker-item span {
-            color: var(--text-color);
-            font-weight: 600;
-        }
-
-        @keyframes marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-
-        /* Sections General */
-        section {
-            padding: 7rem 5%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        section h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            margin-bottom: 3.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            padding: 3rem 2.5rem;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-lavender);
-            box-shadow: 0 15px 35px rgba(158, 134, 255, 0.1);
-        }
-
-        .service-card .num {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--muted-text);
-            font-size: 0.95rem;
-        }
-
-        /* About / Vibe Check */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .about-content { grid-template-columns: 1fr; gap: 2.5rem; }
-        }
-
-        .about-image {
-            width: 100%;
-            height: 480px;
-            background: #E8E7EC; /* Placeholder for your clean lifestyle aesthetic shot */
-            border-radius: var(--border-radius);
-            object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--muted-text);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Contact Form */
-        .contact-container {
-            background: linear-gradient(145deg, #FFFFFF, #F6F4FF);
-            padding: 4rem 3rem;
-            border-radius: var(--border-radius);
-            max-width: 700px;
-            margin: 0 auto;
-            border: 1px solid rgba(110, 82, 224, 0.08);
-            box-shadow: 0 20px 40px rgba(110, 82, 224, 0.03);
-        }
-
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.6rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 1.1rem;
-            background: #FFF;
-            border: 1px solid rgba(0,0,0,0.08);
-            color: var(--text-color);
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(74, 108, 250, 0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--muted-text);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(0,0,0,0.03);
-        }
+        :root { --bg-color: #FAFAFA; --text-color: #1A1C23; --accent-lavender: #E0D7FF; --accent-blue: #4A6CFA; --card-bg: #FFFFFF; --muted-text: #626775; --border-radius: 20px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-color); background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, transparent 50%), radial-gradient(at 50% 0%, rgba(224,215,255,0.3) 0, transparent 50%); color: var(--text-color); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; position: sticky; top: 0; background: rgba(250,250,250,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 100; }
+        .logo { font-family: 'DM Serif Display', serif; font-size: 1.5rem; text-decoration: none; color: var(--text-color); }
+        .logo span { color: var(--accent-blue); }
+        .nav-links a { color: var(--muted-text); text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent-blue); }
+        header { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 5%; max-width: 1100px; margin: 0 auto; }
+        .badge { background: #F0ECFF; color: #6C52E0; padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .badge::before { content: ''; display: inline-block; width: 6px; height: 6px; background: #6C52E0; border-radius: 50%; }
+        h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.1; font-weight: 400; margin-bottom: 1.5rem; letter-spacing: -0.5px; }
+        h1 span { background: linear-gradient(120deg, var(--accent-blue), #9E86FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-p { font-size: clamp(1.05rem, 1.8vw, 1.25rem); max-width: 600px; color: var(--muted-text); margin-bottom: 2.5rem; line-height: 1.75; }
+        .cta-btn { background-color: var(--text-color); color: #FFF; padding: 1.1rem 2.5rem; border-radius: 40px; font-weight: 500; font-size: 1rem; text-decoration: none; transition: all 0.2s ease; display: inline-block; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+        .cta-btn:hover { transform: translateY(-2px); background-color: var(--accent-blue); box-shadow: 0 6px 20px rgba(74,108,250,0.3); }
+        .ticker { background: #F3F2F8; padding: 1.2rem 0; overflow: hidden; white-space: nowrap; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .ticker-wrap { display: inline-block; animation: marquee 22s linear infinite; }
+        .ticker-item { display: inline-block; padding: 0 3rem; font-size: 0.95rem; font-weight: 500; color: var(--muted-text); }
+        .ticker-item span { color: var(--text-color); font-weight: 600; }
+        @keyframes marquee { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
+        section { padding: 7rem 5%; max-width: 1100px; margin: 0 auto; }
+        section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 3.5rem; letter-spacing: -0.3px; font-weight: 400; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .service-card { background: var(--card-bg); padding: 3rem 2.5rem; border-radius: var(--border-radius); border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-5px); border-color: var(--accent-lavender); box-shadow: 0 15px 35px rgba(158,134,255,0.1); }
+        .service-card .num { font-size: 0.8rem; font-weight: 600; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; display: block; }
+        .service-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 0.8rem; font-weight: 400; }
+        .service-card p { color: var(--muted-text); font-size: 0.95rem; line-height: 1.7; }
+        .about-content { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+        @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; gap: 2.5rem; } .nav-links { display: none; } }
+        .about-image { width: 100%; height: 480px; background: #E8E7EC; border-radius: var(--border-radius); object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .about-text p { font-size: 1.05rem; color: var(--muted-text); margin-bottom: 1.4rem; line-height: 1.8; }
+        .contact-container { background: linear-gradient(145deg, #FFFFFF, #F6F4FF); padding: 4rem 3rem; border-radius: var(--border-radius); max-width: 700px; margin: 0 auto; border: 1px solid rgba(110,82,224,0.08); box-shadow: 0 20px 40px rgba(110,82,224,0.03); }
+        .form-group { margin-bottom: 1.8rem; }
+        .form-group label { display: block; margin-bottom: 0.6rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; color: var(--text-color); }
+        .form-group input, .form-group textarea { width: 100%; padding: 1.1rem; background: #FFF; border: 1px solid rgba(0,0,0,0.08); color: var(--text-color); border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: all 0.2s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(74,108,250,0.1); }
+        .trippie-banner { background: #1A1C23; color: #fff; padding: 1.4rem 5%; display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+        .trippie-banner p { font-size: 0.95rem; color: rgba(255,255,255,0.75); }
+        .trippie-banner a { font-size: 0.9rem; font-weight: 600; color: #fff; text-decoration: none; background: var(--accent-blue); padding: 0.5rem 1.2rem; border-radius: 40px; transition: opacity 0.2s; white-space: nowrap; }
+        .trippie-banner a:hover { opacity: 0.85; }
+        footer { text-align: center; padding: 3rem 2rem; color: var(--muted-text); font-size: 0.85rem; border-top: 1px solid rgba(0,0,0,0.04); }
     </style>
 </head>
 <body>
-
-    <!-- NAV -->
     <nav>
         <a href="#" class="logo">aniyah<span>.</span>smith</a>
         <div class="nav-links">
@@ -329,31 +62,26 @@
             <a href="#contact">Contact</a>
         </div>
     </nav>
-
-    <!-- HERO -->
     <header>
-        <div class="badge">Booking clients for Q3 & Q4</div>
+        <div class="badge">Booking clients for Q3 &amp; Q4</div>
         <h1>I help small brands build an <span>unforgettable digital presence.</span></h1>
-        <p class="hero-p">I’m Aniyah. I take the stress out of social. I design tailored organic growth strategies, scroll-stopping content, and clean brand aesthetics that turn followers into customers.</p>
+        <p class="hero-p">I'm Aniyah. I take the stress out of social. I design tailored organic growth strategies, scroll-stopping content, and clean brand aesthetics that turn followers into customers.</p>
         <a href="#contact" class="cta-btn">Let's work together</a>
     </header>
-
-    <!-- SUBTLE ROLLING TICKER -->
     <div class="ticker">
         <div class="ticker-wrap">
-            <div class="ticker-item">✦ Social Media Management: <span>Done right</span></div>
-            <div class="ticker-item">✦ Organic Reach: <span>+140% avg growth</span></div>
-            <div class="ticker-item">✦ Content Strategy: <span>Aesthetic & intentional</span></div>
-            <div class="ticker-item">✦ Small Businesses Helped: <span>12+ and counting</span></div>
-            <!-- Duplicated loop items for seamless scrolling -->
-            <div class="ticker-item">✦ Social Media Management: <span>Done right</span></div>
-            <div class="ticker-item">✦ Organic Reach: <span>+140% avg growth</span></div>
+            <div class="ticker-item">&#10022; Social Media Management: <span>Done right</span></div>
+            <div class="ticker-item">&#10022; Content Strategy: <span>Aesthetic &amp; intentional</span></div>
+            <div class="ticker-item">&#10022; Brand Identity: <span>From vibe to visual</span></div>
+            <div class="ticker-item">&#10022; Short-Form Video: <span>Hook, hold, convert</span></div>
+            <div class="ticker-item">&#10022; Social Media Management: <span>Done right</span></div>
+            <div class="ticker-item">&#10022; Content Strategy: <span>Aesthetic &amp; intentional</span></div>
+            <div class="ticker-item">&#10022; Brand Identity: <span>From vibe to visual</span></div>
+            <div class="ticker-item">&#10022; Short-Form Video: <span>Hook, hold, convert</span></div>
         </div>
     </div>
-
-    <!-- SERVICES -->
     <section id="services">
-        <h2>How we can elevate your brand ↓</h2>
+        <h2>How we can elevate your brand</h2>
         <div class="services-grid">
             <div class="service-card">
                 <span class="num">01 / Content</span>
@@ -372,33 +100,21 @@
             </div>
         </div>
     </section>
-
-    <!-- ABOUT / VIBE CHECK -->
     <section id="about">
         <h2>Vibe Check</h2>
         <div class="about-content">
-            <!-- Replace with a high-quality, beautifully lit portrait (creams, neutrals, soft lighting) -->
             <img src="https://via.placeholder.com/450x550" alt="Aniyah Smith" class="about-image">
             <div class="about-text">
-                <p>
-                    A lot of corporate marketing agencies approach small businesses with generic templates and rigid formulas that just don't fit modern internet culture. 
-                </p>
-                <p>
-                    As a digital native, I build brand communities naturally because I live and breathe online trends. I blend strategic analytics with clean, editorial aesthetic intuition.
-                </p>
-                <p>
-                    When I’m not styling grids or scaling client engagement, you can usually find me hunting for new indie coffee shops, building digital mood boards, or sipping an iced lavender latte.
-                </p>
+                <p>Real talk — most marketing agencies are going to hand you a template, slap your logo on it, and call it a strategy. That's not what I do here.</p>
+                <p>I'm actually on these apps. I see what makes people stop scrolling, what feels authentic, and what gets skipped in 0.3 seconds. I bring that energy to every client I work with.</p>
+                <p>When I'm not in work mode, I'm running marathons (Tokyo and NYC down, London is next), scrolling TikTok for "research," making content as <strong>@aniyah.s</strong>, and yes — I also knit.</p>
             </div>
         </div>
     </section>
-
-    <!-- CONTACT -->
     <section id="contact">
         <div class="contact-container">
-            <h2 style="text-align: center; margin-bottom: 1rem;">Ready to grow?</h2>
-            <p style="text-align: center; color: var(--muted-text); margin-bottom: 3rem;">Tell me about your business goals. Let’s bring your vision to life.</p>
-            
+            <h2 style="text-align:center;margin-bottom:1rem;">Ready to grow?</h2>
+            <p style="text-align:center;color:var(--muted-text);margin-bottom:3rem;">Tell me about your business goals. Let's bring your vision to life.</p>
             <form action="#" method="POST">
                 <div class="form-group">
                     <label for="name">Your Name / Business Name</label>
@@ -412,14 +128,16 @@
                     <label for="message">What are we building?</label>
                     <textarea id="message" rows="5" required placeholder="Tell me a bit about your current social media accounts, your goals, or your overall aesthetic direction..."></textarea>
                 </div>
-                <button type="submit" class="cta-btn" style="width: 100%; border: none; cursor: pointer; padding: 1.2rem;">Send Message</button>
+                <button type="submit" class="cta-btn" style="width:100%;border:none;cursor:pointer;padding:1.2rem;">Send Message</button>
             </form>
         </div>
     </section>
-
+    <div class="trippie-banner">
+        <p>&#9992;&#65039; Planning a group trip soon?</p>
+        <a href="https://trippiepreview.vercel.app" target="_blank">Check out Trippie &#8594;</a>
+    </div>
     <footer>
         <p>&copy; 2026 Aniyah Smith. Curated for the modern web.</p>
     </footer>
-
 </body>
 </html>
