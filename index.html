@@ -1,593 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aniyah Smith</title>
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: #fff;
-      color: #0D0D0D;
-      font-family: 'Satoshi', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniyah Smith — Creative Marketing & Social Growth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant & Modern Typography (Syne for confident headers, Inter for clean layout) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #FAFAFX; /* Soft cream/white */
+            --text-color: #1A1C23; /* Deep navy/charcoal for premium contrast */
+            --accent-lavender: #E0D7FF; /* Aesthetic lavender background accents */
+            --accent-blue: #4A6CFA; /* Crisp, trustworthy blue for links/actions */
+            --card-bg: #FFFFFF; /* Pure white for clean separation */
+            --muted-text: #626775;
+            --border-radius: 20px; /* Slightly rounder, softer edges */
+        }
 
-    /* NAV — masthead style, centered */
-    nav {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      padding: 1.2rem 2.5rem;
-      border-bottom: 1px solid #E8E8E8;
-      position: sticky;
-      top: 0;
-      background: #fff;
-      z-index: 10;
-    }
-    .nav-left { display: flex; gap: 2rem; }
-    .nav-center {
-      font-family: 'Satoshi', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #0D0D0D;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .nav-right { display: flex; gap: 2rem; justify-content: flex-end; }
-    nav a:not(.nav-center) {
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: #999;
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-    nav a:not(.nav-center):hover { color: #0D0D0D; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* ── HERO ── */
-    #hero {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      min-height: calc(100vh - 53px);
-    }
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, transparent 50%),
+                              radial-gradient(at 50% 0%, rgba(224, 215, 255, 0.3) 0, transparent 50%); /* Subtle lavender glow at the top */
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-    /* Photo fills entire left column */
-    .hero-photo {
-      position: relative;
-      overflow: hidden;
-      background: #F0ECF8;
-    }
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            background: rgba(250, 250, 248, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 100;
+        }
 
-    /* Right column: name massive, top-right aligned */
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2.5rem;
-      border-left: 1px solid #E8E8E8;
-    }
-    .hero-name {
-      font-family: 'Satoshi', sans-serif;
-      font-size: clamp(4.5rem, 9.5vw, 10rem);
-      font-weight: 800;
-      line-height: 0.88;
-      letter-spacing: -0.04em;
-      text-align: right;
-    }
-    .hero-name .smith { color: #5C1F7A; display: block; }
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: var(--text-color);
+            letter-spacing: -0.5px;
+        }
 
-    .hero-bottom {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      align-items: flex-end;
-    }
-    .hero-available {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #5C1F7A;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .hero-available::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #5C1F7A;
-    }
-    .hero-desc {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #777;
-      line-height: 1.7;
-      text-align: right;
-      max-width: 300px;
-    }
-    .hero-desc strong { color: #0D0D0D; font-weight: 600; }
-    .hero-cta {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #fff;
-      background: #5C1F7A;
-      padding: 0.8rem 2rem;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: opacity 0.2s;
-    }
-    .hero-cta:hover { opacity: 0.85; }
+        .logo span {
+            color: var(--accent-blue);
+        }
 
-    /* ── STATEMENT — full width centered ── */
-    #statement {
-      border-top: 1px solid #E8E8E8;
-      border-bottom: 1px solid #E8E8E8;
-      padding: 7rem 2.5rem;
-      text-align: center;
-    }
-    .statement-inner { max-width: 820px; margin: 0 auto; }
-    .statement-kicker {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #bbb;
-      margin-bottom: 2rem;
-    }
-    .statement-body {
-      font-family: 'Satoshi', sans-serif;
-      font-size: clamp(1.5rem, 3vw, 2.4rem);
-      font-weight: 500;
-      line-height: 1.35;
-      letter-spacing: -0.02em;
-      color: #0D0D0D;
-    }
-    .statement-body em { font-style: normal; color: #5C1F7A; }
+        .nav-links a {
+            color: var(--muted-text);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-    /* ── STATS — centered, full bleed numbers ── */
-    #stats {
-      background: #F0E9FF;
-      border-bottom: 1px solid #E0D4F5;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .stat-cell {
-      padding: 5rem 3rem;
-      text-align: center;
-      border-right: 1px solid #E0D4F5;
-      transition: background 0.2s;
-    }
-    .stat-cell:last-child { border-right: none; }
-    .stat-cell:hover { background: #E8DDFF; }
-    .stat-n {
-      font-family: 'Satoshi', sans-serif;
-      font-size: clamp(3.5rem, 7vw, 7rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 0.85;
-      color: #5C1F7A;
-      margin-bottom: 1.2rem;
-    }
-    .stat-d {
-      font-size: 0.83rem;
-      font-weight: 400;
-      color: #7A5F94;
-      line-height: 1.65;
-    }
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
 
-    /* ── BRANDS — centered ticker row ── */
-    #brands {
-      padding: 1.8rem 2.5rem;
-      border-bottom: 1px solid #E8E8E8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-    .brand-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #ccc;
-    }
-    .brand-name {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: #bbb;
-      transition: color 0.2s;
-      cursor: default;
-    }
-    .brand-name:hover { color: #0D0D0D; }
+        /* Hero Section */
+        header {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-    /* ── ABOUT — photo left, text right, centered section title ── */
-    #about {
-      border-bottom: 1px solid #E8E8E8;
-    }
-    .about-header {
-      padding: 4rem 2.5rem 3rem;
-      text-align: center;
-      border-bottom: 1px solid #E8E8E8;
-    }
-    .about-header h2 {
-      font-family: 'Satoshi', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 0.9;
-    }
-    .about-header h2 span { color: #5C1F7A; }
-    .about-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .about-facts {
-      padding: 3.5rem 2.5rem;
-      border-right: 1px solid #E8E8E8;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .fact-row {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid #F0F0F0;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #999;
-      letter-spacing: 0.04em;
-    }
-    .about-text { padding: 3.5rem 3rem; }
-    .about-text p {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #444;
-      line-height: 1.9;
-      margin-bottom: 1.2rem;
-    }
-    .about-text p strong { color: #0D0D0D; font-weight: 600; }
+        .badge {
+            background: #F0ECFF;
+            color: #6C52E0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    /* ── SERVICES — right-aligned headings, offset layout ── */
-    #services {
-      border-bottom: 1px solid #E8E8E8;
-    }
-    .svc-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 3.5rem 2.5rem 2.5rem;
-      border-bottom: 1px solid #E8E8E8;
-    }
-    .svc-h2 {
-      font-family: 'Satoshi', sans-serif;
-      font-size: clamp(2rem, 4vw, 4.5rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 0.9;
-    }
-    .svc-h2 span { color: #5C1F7A; }
-    .svc-count {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #ccc;
-    }
-    .svc-item {
-      display: grid;
-      grid-template-columns: 60px 1fr 1fr;
-      gap: 2.5rem;
-      padding: 2.2rem 2.5rem;
-      border-bottom: 1px solid #F0F0F0;
-      align-items: start;
-      transition: background 0.2s;
-    }
-    .svc-item:hover { background: #F9F6FF; }
-    .svc-n {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #5C1F7A;
-      padding-top: 0.25rem;
-    }
-    .svc-name {
-      font-family: 'Satoshi', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
-    .svc-desc {
-      font-size: 0.85rem;
-      color: #777;
-      line-height: 1.75;
-      padding-top: 0.1rem;
-    }
+        .badge::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #6C52E0;
+            border-radius: 50%;
+        }
 
-    /* ── CONTACT — large centered, white on light purple ── */
-    #contact {
-      background: #F0E9FF;
-      padding: 8rem 2.5rem;
-      text-align: center;
-      border-bottom: 1px solid #E0D4F5;
-    }
-    .contact-kicker {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #B08FCC;
-      margin-bottom: 2rem;
-    }
-    .contact-h {
-      font-family: 'Satoshi', sans-serif;
-      font-size: clamp(3.5rem, 8vw, 9rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 0.88;
-      color: #0D0D0D;
-      margin-bottom: 3rem;
-    }
-    .contact-h span { color: #5C1F7A; }
-    .contact-email {
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: #5C1F7A;
-      text-decoration: none;
-      border-bottom: 1.5px solid #5C1F7A;
-      padding-bottom: 0.15rem;
-      transition: opacity 0.2s;
-    }
-    .contact-email:hover { opacity: 0.7; }
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
 
-    /* ── BOTTOM ── */
-    .bottom-strip {
-      padding: 1.2rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      border-bottom: 1px solid #E8E8E8;
-    }
-    .ic { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; text-decoration: none; color: #ccc; transition: color 0.2s; }
-    .ic:hover { color: #5C1F7A; }
-    .ic svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .ic span { font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+        h1 span {
+            color: var(--accent-blue);
+            background: linear-gradient(120deg, var(--accent-blue), #9E86FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    /* ART BANNER */
-    #art-banner {
-      padding: 1rem 2.5rem;
-      border-bottom: 1px solid #E8E8E8;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    #art-banner p { font-size: 0.78rem; color: #bbb; }
-    #art-banner a {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: #5C1F7A;
-      text-decoration: none;
-      border-bottom: 1px solid #5C1F7A;
-      padding-bottom: 0.08rem;
-      transition: opacity 0.2s;
-    }
-    #art-banner a:hover { opacity: 0.7; }
+        .hero-p {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            max-width: 620px;
+            color: var(--muted-text);
+            margin-bottom: 2.5rem;
+        }
 
-    /* FOOTER */
-    footer {
-      padding: 1.5rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .fn { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-    .footer-links { display: flex; gap: 2rem; }
-    .footer-links a { font-size: 0.7rem; color: #bbb; text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: #0D0D0D; }
-    footer .copy { font-size: 0.65rem; color: #ddd; }
+        .cta-btn {
+            background-color: var(--text-color);
+            color: #FFF;
+            padding: 1.1rem 2.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+        }
 
-    /* MOBILE */
-    @media (max-width: 760px) {
-      nav { grid-template-columns: 1fr 1fr; padding: 1rem 1.5rem; }
-      .nav-left { display: none; }
-      .nav-right { display: none; }
-      .nav-center { text-align: left; }
-      #hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-photo { height: 80vw; }
-      .hero-right { border-left: none; border-top: 1px solid #E8E8E8; padding: 2rem 1.5rem; }
-      .hero-name { text-align: left; font-size: clamp(3.5rem, 15vw, 6rem); }
-      .hero-bottom { align-items: flex-start; }
-      .hero-desc { text-align: left; }
-      #statement { padding: 4rem 1.5rem; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .stat-cell { border-right: none; border-bottom: 1px solid #E0D4F5; padding: 3.5rem 1.5rem; }
-      #brands { padding: 1.5rem; gap: 1.5rem; }
-      .about-body { grid-template-columns: 1fr; }
-      .about-facts { border-right: none; border-bottom: 1px solid #E8E8E8; }
-      .about-facts, .about-text { padding: 2.5rem 1.5rem; }
-      .about-header { padding: 3rem 1.5rem; }
-      .svc-header { padding: 2.5rem 1.5rem; }
-      .svc-item { grid-template-columns: 40px 1fr; gap: 1rem; padding: 1.8rem 1.5rem; }
-      .svc-desc { display: none; }
-      #contact { padding: 5rem 1.5rem; }
-      .bottom-strip { gap: 1.5rem; flex-wrap: wrap; padding: 1.2rem 1.5rem; }
-      #art-banner { padding: 1rem 1.5rem; }
-      footer { padding: 1.5rem; flex-direction: column; gap: 0.8rem; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-    }
-  </style>
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--accent-blue);
+            box-shadow: 0 6px 20px rgba(74, 108, 250, 0.3);
+        }
+
+        /* Subtle Marquee Ticker */
+        .ticker {
+            background: #F3F2F8;
+            padding: 1.2rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-y: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .ticker-wrap {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 3rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--muted-text);
+        }
+
+        .ticker-item span {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* Sections General */
+        section {
+            padding: 7rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin-bottom: 3.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 3rem 2.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-lavender);
+            box-shadow: 0 15px 35px rgba(158, 134, 255, 0.1);
+        }
+
+        .service-card .num {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        /* About / Vibe Check */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        .about-image {
+            width: 100%;
+            height: 480px;
+            background: #E8E7EC; /* Placeholder for your clean lifestyle aesthetic shot */
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--muted-text);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            background: linear-gradient(145deg, #FFFFFF, #F6F4FF);
+            padding: 4rem 3rem;
+            border-radius: var(--border-radius);
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(110, 82, 224, 0.08);
+            box-shadow: 0 20px 40px rgba(110, 82, 224, 0.03);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1.1rem;
+            background: #FFF;
+            border: 1px solid rgba(0,0,0,0.08);
+            color: var(--text-color);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(74, 108, 250, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0,0,0,0.03);
+        }
+    </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-left">
-    <a href="#about">About</a>
-    <a href="#services">Work</a>
-  </div>
-  <a href="/" class="nav-center">Aniyah Smith</a>
-  <div class="nav-right">
-    <a href="https://aniyahs.substack.com" target="_blank">Substack</a>
-    <a href="mailto:aniyahc.smith@gmail.com">Contact</a>
-  </div>
-</nav>
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="logo">aniyah<span>.</span>smith</a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">Vibe Check</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-photo">
-    <img src="aniyah.png" alt="Aniyah Smith" />
-  </div>
-  <div class="hero-right">
-    <div class="hero-name">
-      Aniyah<br/>
-      <span class="smith">Smith.</span>
+    <!-- HERO -->
+    <header>
+        <div class="badge">Booking clients for Q3 & Q4</div>
+        <h1>I help small brands build an <span>unforgettable digital presence.</span></h1>
+        <p class="hero-p">I’m Aniyah. I take the stress out of social. I design tailored organic growth strategies, scroll-stopping content, and clean brand aesthetics that turn followers into customers.</p>
+        <a href="#contact" class="cta-btn">Let's work together</a>
+    </header>
+
+    <!-- SUBTLE ROLLING TICKER -->
+    <div class="ticker">
+        <div class="ticker-wrap">
+            <div class="ticker-item">✦ Social Media Management: <span>Done right</span></div>
+            <div class="ticker-item">✦ Organic Reach: <span>+140% avg growth</span></div>
+            <div class="ticker-item">✦ Content Strategy: <span>Aesthetic & intentional</span></div>
+            <div class="ticker-item">✦ Small Businesses Helped: <span>12+ and counting</span></div>
+            <!-- Duplicated loop items for seamless scrolling -->
+            <div class="ticker-item">✦ Social Media Management: <span>Done right</span></div>
+            <div class="ticker-item">✦ Organic Reach: <span>+140% avg growth</span></div>
+        </div>
     </div>
-    <div class="hero-bottom">
-      <div class="hero-available">Available for new clients</div>
-      <p class="hero-desc">Brand strategist. <strong>7 years building things that actually work.</strong> Now working with businesses that actually excite me.</p>
-      <a href="mailto:aniyahc.smith@gmail.com" class="hero-cta">Work With Me</a>
-    </div>
-  </div>
-</section>
 
-<!-- STATEMENT -->
-<section id="statement">
-  <div class="statement-inner">
-    <div class="statement-kicker">On the work</div>
-    <p class="statement-body">
-      Brands grow when the strategy is honest and the execution is sharp. I've spent 7 years doing both at scale. <em>Now I bring that to the brands that matter to me.</em>
-    </p>
-  </div>
-</section>
+    <!-- SERVICES -->
+    <section id="services">
+        <h2>How we can elevate your brand ↓</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="num">01 / Content</span>
+                <h3>Short-Form Video</h3>
+                <p>TikToks, Reels, and YouTube Shorts designed to hook your ideal demographic. Includes platform curation, script outline, and editing support.</p>
+            </div>
+            <div class="service-card">
+                <span class="num">02 / Strategy</span>
+                <h3>Social Management</h3>
+                <p>Full-service aesthetic alignment, content scheduling, engagement, and copy that sounds deeply authentic, never automated.</p>
+            </div>
+            <div class="service-card">
+                <span class="num">03 / Design</span>
+                <h3>Brand Identity</h3>
+                <p>Curating precise color stories, typography, and visual pillars so your small business feels like a premium, established entity.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- STATS -->
-<section id="stats">
-  <div class="stats-grid">
-    <div class="stat-cell">
-      <div class="stat-n">$3B</div>
-      <div class="stat-d">Revenue from a mobile game launch I built the consumer insights strategy for.</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-n">+118%</div>
-      <div class="stat-d">Sales growth in 3 months from an influencer program I designed end-to-end.</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-n">$2.4M</div>
-      <div class="stat-d">Revenue in one year from a single product quiz I built from scratch.</div>
-    </div>
-  </div>
-</section>
+    <!-- ABOUT / VIBE CHECK -->
+    <section id="about">
+        <h2>Vibe Check</h2>
+        <div class="about-content">
+            <!-- Replace with a high-quality, beautifully lit portrait (creams, neutrals, soft lighting) -->
+            <img src="https://via.placeholder.com/450x550" alt="Aniyah Smith" class="about-image">
+            <div class="about-text">
+                <p>
+                    A lot of corporate marketing agencies approach small businesses with generic templates and rigid formulas that just don't fit modern internet culture. 
+                </p>
+                <p>
+                    As a digital native, I build brand communities naturally because I live and breathe online trends. I blend strategic analytics with clean, editorial aesthetic intuition.
+                </p>
+                <p>
+                    When I’m not styling grids or scaling client engagement, you can usually find me hunting for new indie coffee shops, building digital mood boards, or sipping an iced lavender latte.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- BRANDS -->
-<div id="brands">
-  <span class="brand-label">Past work</span>
-  <span class="brand-name">Tarte Cosmetics</span>
-  <span class="brand-name">bareMinerals</span>
-  <span class="brand-name">Vox Media</span>
-  <span class="brand-name">Rokt</span>
-  <span class="brand-name">Danessa Myricks Beauty</span>
-  <span class="brand-name">NASDAQ</span>
-</div>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="contact-container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Ready to grow?</h2>
+            <p style="text-align: center; color: var(--muted-text); margin-bottom: 3rem;">Tell me about your business goals. Let’s bring your vision to life.</p>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name / Business Name</label>
+                    <input type="text" id="name" required placeholder="e.g., Sunday Flora Boutique">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" required placeholder="hello@yourbrand.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">What are we building?</label>
+                    <textarea id="message" rows="5" required placeholder="Tell me a bit about your current social media accounts, your goals, or your overall aesthetic direction..."></textarea>
+                </div>
+                <button type="submit" class="cta-btn" style="width: 100%; border: none; cursor: pointer; padding: 1.2rem;">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-header">
-    <h2>About <span>Aniyah.</span></h2>
-  </div>
-  <div class="about-body">
-    <div class="about-facts">
-      <div>
-        <div class="fact-row">MBA · Northeastern University</div>
-        <div class="fact-row">New York City</div>
-        <div class="fact-row">Marathon runner · Tokyo ✓ NYC ✓ London →</div>
-        <div class="fact-row">TikTok · @aniyah.s</div>
-        <div class="fact-row">Shokz Brand Ambassador</div>
-      </div>
-    </div>
-    <div class="about-text">
-      <p>I spent 7 years inside some of the biggest marketing environments in the world — learning what actually moves the needle and what's just noise. The numbers in the section above aren't there to impress. They're there to tell you I know what I'm doing.</p>
-      <p>Going independent was a choice. I wanted to work with businesses where I can see the impact, where the owner gives a damn about their brand, and where showing up actually means something. Those are the clients I do my best work for.</p>
-      <p>When I'm not working I'm training for marathons, making content on TikTok, and creating art on the side. I believe showing up every single day — in running, in business, in everything — is the whole thing.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="svc-header">
-    <div class="svc-h2">How I can <span>help.</span></div>
-    <div class="svc-count">3 services</div>
-  </div>
-  <div class="svc-item">
-    <div class="svc-n">01</div>
-    <div class="svc-name">Brand & Positioning</div>
-    <div class="svc-desc">Who you are, who you're talking to, and how to say it. Voice, messaging, competitive positioning — for brands whose story hasn't caught up to where they actually are.</div>
-  </div>
-  <div class="svc-item">
-    <div class="svc-n">02</div>
-    <div class="svc-name">Social Media Management</div>
-    <div class="svc-desc">Monthly retainer. Strategy, content, execution. You run your business — I make sure you're showing up for it online.</div>
-  </div>
-  <div class="svc-item">
-    <div class="svc-n">03</div>
-    <div class="svc-name">Launch & Campaign Strategy</div>
-    <div class="svc-desc">New product, new location, new season. A plan that gets the right people paying attention and actually doing something about it.</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-kicker">Get in touch</div>
-  <div class="contact-h">Let's<br/><span>talk.</span></div>
-  <a href="mailto:aniyahc.smith@gmail.com" class="contact-email">aniyahc.smith@gmail.com</a>
-</section>
-
-<!-- ICONS -->
-<div class="bottom-strip">
-  <a href="mailto:aniyahc.smith@gmail.com" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><span>Email</span></a>
-  <a href="https://www.tiktok.com/@aniyah.s" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg><span>TikTok</span></a>
-  <a href="https://aniyahs.substack.com" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 19l4-4 4 4 4-4 4 4V14H4v5z"/></svg><span>Substack</span></a>
-  <a href="https://aniyahsmith.com/s/Portfolio-June-2025-55ad.pdf" target="_blank" class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Portfolio</span></a>
-  <a href="https://www.linkedin.com/in/aniyahsmith" target="_blank" class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11a3 3 0 0 1 6 0v5"/></svg><span>LinkedIn</span></a>
-</div>
-
-<!-- ART BANNER -->
-<div id="art-banner">
-  <p>Aniyah also takes art commissions.</p>
-  <a href="/art">And if you need some art →</a>
-</div>
-
-<footer>
-  <div class="fn">Aniyah Smith</div>
-  <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="https://aniyahs.substack.com" target="_blank">Substack</a>
-  </div>
-  <p class="copy">© 2025</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 Aniyah Smith. Curated for the modern web.</p>
+    </footer>
 
 </body>
 </html>
